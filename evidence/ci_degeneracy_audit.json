@@ -1,0 +1,1756 @@
+{
+ "generated_utc": "2026-09-07T13:20:42Z",
+ "small_n_threshold": 30,
+ "n_intervals_audited": 111,
+ "degenerate_intervals": [
+  "r2_bbb_martins_vs_own_trainval::near_pair_stat",
+  "r2_bbb_martins_vs_own_trainval::pair_diff",
+  "r2_bbb_martins_vs_own_trainval::random_pair_stat"
+ ],
+ "n_degenerate": 3,
+ "rows": [
+  {
+   "claim_id": "s1_bbb_martins::leak_rate_0p9",
+   "value": 93.84,
+   "ci": [
+    91.07,
+    95.79
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_bbb_martins::leak_rate_0p95",
+   "value": 92.86,
+   "ci": [
+    89.93,
+    94.98
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_bbb_martins::leak_rate_1p0",
+   "value": 91.63,
+   "ci": [
+    88.53,
+    93.95
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_bbb_martins::exact_dup_rate",
+   "value": 85.47,
+   "ci": [
+    81.71,
+    88.56
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_bbb_martins::own_trainval_rate_0p9",
+   "value": 0.25,
+   "ci": [
+    0.04,
+    1.38
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::leak_rate_0p9",
+   "value": 99.52,
+   "ci": [
+    98.78,
+    99.81
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::leak_rate_0p95",
+   "value": 99.52,
+   "ci": [
+    98.78,
+    99.81
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::leak_rate_1p0",
+   "value": 99.52,
+   "ci": [
+    98.78,
+    99.81
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::exact_dup_rate",
+   "value": 99.29,
+   "ci": [
+    98.45,
+    99.67
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::own_trainval_rate_0p9",
+   "value": 2.14,
+   "ci": [
+    1.36,
+    3.36
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::leak_rate_0p9",
+   "value": 50.78,
+   "ci": [
+    48.58,
+    52.97
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::leak_rate_0p95",
+   "value": 49.67,
+   "ci": [
+    47.48,
+    51.87
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::leak_rate_1p0",
+   "value": 48.97,
+   "ci": [
+    46.78,
+    51.17
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::exact_dup_rate",
+   "value": 42.26,
+   "ci": [
+    40.1,
+    44.44
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::own_trainval_rate_0p9",
+   "value": 1.5,
+   "ci": [
+    1.06,
+    2.14
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_lipophilicity_astrazeneca::endpoint_pool_rate_0p9",
+   "value": 18.69,
+   "ci": [
+    16.2,
+    21.47
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1_solubility_aqsoldb::endpoint_pool_rate_0p9",
+   "value": 6.22,
+   "ci": [
+    5.24,
+    7.36
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_bbb_martins::drugbank_rate_0p9",
+   "value": 51.97,
+   "ci": [
+    47.11,
+    56.79
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_bbb_martins::union_rate_0p9",
+   "value": 94.58,
+   "ci": [
+    91.93,
+    96.39
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_lipophilicity_astrazeneca::drugbank_rate_0p9",
+   "value": 12.14,
+   "ci": [
+    10.1,
+    14.53
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_lipophilicity_astrazeneca::union_rate_0p9",
+   "value": 99.76,
+   "ci": [
+    99.14,
+    99.93
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_solubility_aqsoldb::drugbank_rate_0p9",
+   "value": 15.39,
+   "ci": [
+    13.87,
+    17.04
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "c6_solubility_aqsoldb::union_rate_0p9",
+   "value": 51.23,
+   "ci": [
+    49.03,
+    53.42
+   ],
+   "kind": "Wilson score interval (closed form)",
+   "unit": "test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "closed form on n>=406 molecules; not a resample"
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1991,
+    0.1085
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 25,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 381 / clean 25; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1063,
+    -0.0643
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.1126,
+    -0.0609
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.1336,
+    -0.0104
+   ]
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1066,
+    0.2519
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 25,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 381 / clean 25; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.0371,
+    0.0727
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.0328,
+    0.0761
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.0106,
+    0.1038
+   ]
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1492,
+    0.1359
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 25,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 381 / clean 25; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_bbb_martins_B_tdc_trainval_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.0705,
+    -0.027
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.076,
+    -0.0238
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.0988,
+    0.0198
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.675,
+    0.7339
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.0533,
+    0.0541
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.067,
+    0.0642
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.1468,
+    0.2015
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.5565,
+    0.1698
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.2452,
+    -0.1364
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.2511,
+    -0.1199
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.3413,
+    -0.0835
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.4352,
+    1.4703
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.375,
+    0.4288
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.3697,
+    0.4359
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.3032,
+    0.4795
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.6385,
+    0.812
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.008,
+    0.15
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.0088,
+    0.1649
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.114,
+    0.2587
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.6292,
+    0.1914
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.2455,
+    -0.1528
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.2537,
+    -0.1408
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.3394,
+    -0.0966
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.4901,
+    1.4245
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.3285,
+    0.4037
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.3194,
+    0.4105
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.2847,
+    0.4834
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.0258,
+    2.1926
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.9485,
+    1.0809
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.9349,
+    1.0975
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.8386,
+    1.1589
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.0396,
+    2.0948
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    1.0404,
+    1.212
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    1.0182,
+    1.2243
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.9173,
+    1.4208
+   ]
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1216,
+    1.8382
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 4,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 836 / clean 4; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.6879,
+    0.74
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.6823,
+    0.7456
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.6477,
+    0.7672
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.4937,
+    0.7728
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.6123,
+    0.6411
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.6111,
+    0.6455
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.5697,
+    0.6667
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.2875,
+    0.5056
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.393,
+    0.4018
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.392,
+    0.4029
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.387,
+    0.4068
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.3167,
+    0.5447
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.4251,
+    0.4338
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.424,
+    0.4347
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.4194,
+    0.444
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.4637,
+    0.7388
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.5866,
+    0.6126
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.5836,
+    0.6152
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.5682,
+    0.6299
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.2808,
+    0.504
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.3845,
+    0.3939
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.3839,
+    0.395
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.3753,
+    0.3979
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.2949,
+    0.5262
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.4052,
+    0.4132
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.4044,
+    0.4142
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.3985,
+    0.4188
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.1424,
+    0.333
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.2321,
+    0.2453
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.2304,
+    0.2467
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.2191,
+    0.2609
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    -0.1751,
+    0.0323
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    -0.0845,
+    -0.0601
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    -0.0865,
+    -0.057
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    -0.1134,
+    -0.0389
+   ]
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::gap [molecule-level, QUOTED]",
+   "value": null,
+   "ci": [
+    0.1641,
+    0.338
+   ],
+   "kind": "molecule-level percentile bootstrap",
+   "unit": "test molecule",
+   "n_units": 982,
+   "degenerate": false,
+   "t_ci": null,
+   "note": "leaked 1013 / clean 982; the smaller side bounds the resolution of the interval"
+  },
+  {
+   "claim_id": "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::gap [seed-level, NOT QUOTED]",
+   "value": null,
+   "ci": [
+    0.2443,
+    0.2555
+   ],
+   "kind": "seed-level percentile bootstrap",
+   "unit": "fitting seed",
+   "n_units": 10,
+   "degenerate": false,
+   "t_ci": [
+    0.2428,
+    0.2563
+   ],
+   "note": "ledger-only; amendment A6 forbids quoting it in the paper",
+   "unit_min_max": [
+    0.2386,
+    0.2672
+   ]
+  },
+  {
+   "claim_id": "r2_bbb_martins_vs_own_trainval::near_pair_stat",
+   "value": 1.0,
+   "ci": [
+    1.0,
+    1.0
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 1,
+   "degenerate": true,
+   "t_ci": null,
+   "note": "ZERO-WIDTH interval: every resample gives the same value."
+  },
+  {
+   "claim_id": "r2_bbb_martins_vs_own_trainval::random_pair_stat",
+   "value": 0.0,
+   "ci": [
+    0.0,
+    0.0
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 1,
+   "degenerate": true,
+   "t_ci": null,
+   "note": "ZERO-WIDTH interval: every resample gives the same value."
+  },
+  {
+   "claim_id": "r2_bbb_martins_vs_own_trainval::pair_diff",
+   "value": 1.0,
+   "ci": [
+    1.0,
+    1.0
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 1,
+   "degenerate": true,
+   "t_ci": null,
+   "note": "ZERO-WIDTH interval: every resample gives the same value."
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_own_trainval::near_pair_stat",
+   "value": 0.4739,
+   "ci": [
+    0.3733,
+    0.5811
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 18,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_own_trainval::random_pair_stat",
+   "value": 1.4861,
+   "ci": [
+    0.9755,
+    2.06
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 18,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_own_trainval::pair_diff",
+   "value": -1.0122,
+   "ci": [
+    -1.6045,
+    -0.4717
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 18,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::near_pair_stat",
+   "value": 0.0808,
+   "ci": [
+    0.0551,
+    0.1104
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 157,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::random_pair_stat",
+   "value": 1.6181,
+   "ci": [
+    1.4192,
+    1.8305
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 157,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::pair_diff",
+   "value": -1.5372,
+   "ci": [
+    -1.7484,
+    -1.3339
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 157,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_own_trainval::near_pair_stat",
+   "value": 1.6706,
+   "ci": [
+    1.0949,
+    2.3797
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 30,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_own_trainval::random_pair_stat",
+   "value": 2.7077,
+   "ci": [
+    1.9631,
+    3.4924
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 30,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_own_trainval::pair_diff",
+   "value": -1.0372,
+   "ci": [
+    -1.9391,
+    -0.1137
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 30,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::near_pair_stat",
+   "value": 0.6739,
+   "ci": [
+    0.5121,
+    0.8452
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 124,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::random_pair_stat",
+   "value": 1.5673,
+   "ci": [
+    1.3533,
+    1.789
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 124,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::pair_diff",
+   "value": -0.8934,
+   "ci": [
+    -1.1391,
+    -0.6478
+   ],
+   "kind": "paired bootstrap over near-duplicate pairs",
+   "unit": "near-duplicate pair",
+   "n_units": 124,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_bbb_martins_B_tdc_trainval_knn_tanimoto::matched_gap",
+   "value": -0.0839,
+   "ci": [
+    -0.2367,
+    0.0533
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_bbb_martins_B_tdc_trainval_linear_ecfp::matched_gap",
+   "value": 0.0452,
+   "ci": [
+    -0.1207,
+    0.1533
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_bbb_martins_B_tdc_trainval_random_forest::matched_gap",
+   "value": -0.0495,
+   "ci": [
+    -0.2268,
+    0.0602
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap",
+   "value": 0.3285,
+   "ci": [
+    0.2773,
+    0.3771
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap",
+   "value": 0.1441,
+   "ci": [
+    0.1119,
+    0.1742
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap",
+   "value": 0.1881,
+   "ci": [
+    0.1594,
+    0.2119
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap",
+   "value": 0.2926,
+   "ci": [
+    0.2505,
+    0.3338
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap",
+   "value": 0.1382,
+   "ci": [
+    0.1097,
+    0.1749
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap",
+   "value": 0.1595,
+   "ci": [
+    0.1327,
+    0.189
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap",
+   "value": 0.1074,
+   "ci": [
+    0.0674,
+    0.143
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap",
+   "value": -0.1452,
+   "ci": [
+    -0.1873,
+    -0.1013
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap",
+   "value": 0.0689,
+   "ci": [
+    0.0393,
+    0.0941
+   ],
+   "kind": "bootstrap over matched molecules",
+   "unit": "matched test molecule",
+   "n_units": null,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_nested",
+   "value": 0.3194,
+   "ci": [
+    0.2167,
+    0.4182
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_nested",
+   "value": 0.1393,
+   "ci": [
+    0.0651,
+    0.2117
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_nested",
+   "value": 0.1793,
+   "ci": [
+    0.1107,
+    0.2533
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_nested",
+   "value": 0.2863,
+   "ci": [
+    0.1863,
+    0.3854
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_nested",
+   "value": 0.1325,
+   "ci": [
+    0.0576,
+    0.2076
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_nested",
+   "value": 0.1522,
+   "ci": [
+    0.0864,
+    0.2211
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_nested",
+   "value": 0.1085,
+   "ci": [
+    0.0164,
+    0.2024
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_nested",
+   "value": -0.1424,
+   "ci": [
+    -0.2405,
+    -0.0396
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_nested",
+   "value": 0.0711,
+   "ci": [
+    -0.0049,
+    0.1428
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_a2_minus_b_knn_tanimoto::paired_difference",
+   "value": 0.1778,
+   "ci": [
+    0.0669,
+    0.2965
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_a2_minus_b_linear_ecfp::paired_difference",
+   "value": 0.2749,
+   "ci": [
+    0.1639,
+    0.3935
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "r3_solubility_aqsoldb_a2_minus_b_random_forest::paired_difference",
+   "value": 0.0811,
+   "ci": [
+    0.0104,
+    0.1567
+   ],
+   "kind": "nested bootstrap, 1000 outer draws over test molecules",
+   "unit": "test molecule (re-stratified and re-matched inside each draw)",
+   "n_units": 1000,
+   "degenerate": false,
+   "t_ci": null,
+   "note": ""
+  },
+  {
+   "claim_id": "s2_pooled::overstatement",
+   "value": 0.0216,
+   "ci": [
+    0.0085,
+    0.0353
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "LLM curator x seed",
+   "n_units": 6,
+   "degenerate": false,
+   "t_ci": [
+    0.0021,
+    0.0411
+   ],
+   "note": "",
+   "unit_min_max": [
+    -0.0012,
+    0.045
+   ]
+  },
+  {
+   "claim_id": "s2_random_curator_control::full_minus_clean",
+   "value": 0.0021,
+   "ci": null,
+   "kind": "unit-level percentile bootstrap",
+   "unit": "seed",
+   "n_units": 3,
+   "degenerate": false,
+   "t_ci": [
+    -0.0152,
+    0.0194
+   ],
+   "note": "no interval is printed for this quantity"
+  },
+  {
+   "claim_id": "c7_paired::gain_scaffold_holdout",
+   "value": 0.0067,
+   "ci": [
+    -0.0132,
+    0.0297
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "curator x seed",
+   "n_units": 6,
+   "degenerate": false,
+   "t_ci": [
+    -0.0236,
+    0.037
+   ],
+   "note": "",
+   "unit_min_max": [
+    -0.0279,
+    0.052
+   ]
+  },
+  {
+   "claim_id": "c7_paired::gain_full_test",
+   "value": 0.002,
+   "ci": [
+    -0.0098,
+    0.0144
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "curator x seed",
+   "n_units": 6,
+   "degenerate": false,
+   "t_ci": [
+    -0.0155,
+    0.0196
+   ],
+   "note": "",
+   "unit_min_max": [
+    -0.0203,
+    0.0239
+   ]
+  },
+  {
+   "claim_id": "c7_paired::gain_nonleaked_test",
+   "value": -0.0059,
+   "ci": [
+    -0.0268,
+    0.023
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "curator x seed",
+   "n_units": 6,
+   "degenerate": false,
+   "t_ci": [
+    -0.0426,
+    0.0308
+   ],
+   "note": "",
+   "unit_min_max": [
+    -0.0357,
+    0.0604
+   ]
+  },
+  {
+   "claim_id": "c7_paired::overstatement",
+   "value": 0.008,
+   "ci": [
+    -0.0123,
+    0.0243
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "curator x seed",
+   "n_units": 6,
+   "degenerate": false,
+   "t_ci": [
+    -0.0183,
+    0.0342
+   ],
+   "note": "",
+   "unit_min_max": [
+    -0.0365,
+    0.0341
+   ]
+  },
+  {
+   "claim_id": "c7_selection::jaccard",
+   "value": 0.2494,
+   "ci": [
+    0.1593,
+    0.346
+   ],
+   "kind": "unit-level percentile bootstrap",
+   "unit": "curator x seed x round call",
+   "n_units": 18,
+   "degenerate": false,
+   "t_ci": [
+    0.1446,
+    0.3543
+   ],
+   "note": "",
+   "unit_min_max": [
+    0.0,
+    0.75
+   ]
+  }
+ ]
+}

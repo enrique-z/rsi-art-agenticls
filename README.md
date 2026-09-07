@@ -5,7 +5,7 @@ Double-blind submission. Track I (Building Agentic Systems for Life Science).
 
 **Anonymous release.** This repository holds the reproducibility artifacts for one
 double-blind submission. Absolute paths have been replaced by placeholders
-(`<REPO_ROOT>`, `<HOME>`) and identifying strings removed. The manuscript itself
+(`<REPO_ROOT>`, `<DATA_ROOT>`) and identifying strings removed. The manuscript itself
 (`main.tex` / `main.pdf`) is not part of this repository.
 
 ---
@@ -39,7 +39,11 @@ of test molecules have a Tanimoto ≥ 0.9 near-duplicate in ChEMBL 36, versus 0.
 - **Python 3.14** with **RDKit** (`pip install rdkit`)
 - **ChEMBL 36** SQLite database (~28 GB) — must be downloaded separately (see below)
 - **TDC** package: `pip install PyTDC` (fetches the ADMET files)
-- For Stage 2 (LLM arm): **Ollama** with `qwen3:8b` served locally
+- For Stage 2 (LLM arms): **Ollama** with `qwen2.5-coder:14b` and `qwen3:8b` served
+  locally (thinking disabled — see `evidence/DESIGN_NOTES.md` A8)
+- For the C6 second-corpus census and the C8 remediation ladder: **DrugBank 5.1**
+  `full database.xml` (registered access; not redistributable — point `DRUGBANK_XML` at
+  your own copy)
 - `pip install scikit-learn numpy pandas scipy`
 
 ### Data that must be downloaded separately
@@ -71,7 +75,9 @@ python3 s2_shuffled_feedback.py   # control arm
 
 # 5. Supporting analyses
 python3 matching_ladder.py
-python3 c6_drugbank_census.py     # DrugBank overlap audit
+python3 c6_drugbank_census.py     # DrugBank overlap audit (C6)
+python3 c8_remediation.py         # C8 remediation ladder (requires DrugBank 5.1 XML)
+python3 ci_degeneracy_audit.py    # interval-degeneracy audit
 python3 make_ledger.py            # assemble EGCL ledger
 
 # 6. Figures and guard
@@ -86,7 +92,8 @@ python3 guard.py --strict     # verify every reported number against the ledger
 | Path | Description |
 |------|-------------|
 | `A2_PREDECLARATION_2026-09-07.md` | Pre-registration (binding design, before any data) |
-| `C7_PRECOMMITMENT_2026-09-07.md` | Stage 2 pre-commitment |
+| `C7_PRECOMMITMENT_2026-09-07.md` | C7 pre-commitment (feedback-shuffled control arm) |
+| `C8_PRECOMMITMENT_2026-09-07.md` | C8 pre-commitment (does the R6 remedy work?) |
 | `CLAIMS.md` | Machine-readable claim list |
 | `DOMAIN_AUDIT.md` | Domain validity audit |
 | `EXPERIMENT_REPORT.md` | Post-hoc experiment report (headline results) |
@@ -99,7 +106,9 @@ python3 guard.py --strict     # verify every reported number against the ledger
 | `analysis/build_chembl_fps.py` | ChEMBL fingerprint index builder |
 | `analysis/build_chembl_scaffolds.py` | ChEMBL scaffold index builder |
 | `analysis/build_chembl_endpoints.py` | ChEMBL endpoint table builder |
-| `analysis/c6_drugbank_census.py` | DrugBank overlap audit |
+| `analysis/c6_drugbank_census.py` | DrugBank overlap audit (C6) |
+| `analysis/c8_remediation.py` | C8 remediation ladder — re-scores the loop on progressively stricter decontaminations |
+| `analysis/ci_degeneracy_audit.py` | Audits every reported interval for small-n percentile degeneracy |
 | `analysis/leakage_lib.py` | Shared leakage computation utilities |
 | `analysis/make_ledger.py` | EGCL ledger assembler |
 | `analysis/make_figure.py` | Figure generation |
@@ -117,7 +126,9 @@ python3 guard.py --strict     # verify every reported number against the ledger
 | `evidence/s2_rsi_results.json` | Stage 2 RSI results |
 | `evidence/s2_model_calls.jsonl` | Stage 2 LLM call log |
 | `evidence/matching_ladder.json` | Tanimoto threshold table |
-| `evidence/c6_drugbank_census.json` | DrugBank census results |
+| `evidence/c6_drugbank_census.json` | DrugBank census results (C6) |
+| `evidence/c8_remediation.json` | C8 remediation ladder, per-unit gains and the pre-committed reproduction check |
+| `evidence/ci_degeneracy_audit.json` | Per-interval degeneracy audit |
 | `evidence/figure_claims.json` | Figure data for guard |
 | `refs.bib` | Bibliography (BibTeX) |
 | `build.guard.log` | Anti-fabrication guard output for the submitted manuscript: every stamped cell resolved against the manifest |
@@ -133,7 +144,7 @@ python3 guard.py --strict     # verify every reported number against the ledger
 | RDKit | (installed; version in `evidence/DESIGN_NOTES.md`) |
 | ChEMBL | 36 (SQLite) |
 | TDC ADMET | PyTDC package release as of 2026-09-07 |
-| Ollama model | qwen3:8b (Stage 2) |
+| Ollama models | qwen2.5-coder:14b and qwen3:8b (Stage 2 curator arms) |
 | scikit-learn | (version in `evidence/DESIGN_NOTES.md`) |
 | Platform | macOS, arm64 |
 
@@ -146,6 +157,7 @@ python3 guard.py --strict     # verify every reported number against the ledger
 | `main.tex` / `main.pdf` | The manuscript is not part of the artifact repository |
 | ChEMBL 36 SQLite | ~28 GB — far above this repository's size budget. Download it from the URL above, verify the SHA-256, and point `CHEMBL_DB` at the extracted `.db`; `analysis/build_chembl_fps.py` regenerates every derived index from it. |
 | TDC ADMET source files | Auto-downloaded by PyTDC; SHA-256 in `evidence/DESIGN_NOTES.md` |
+| DrugBank 5.1 `full database.xml` | Registered-access download, not redistributable. Required only by `c6_drugbank_census.py` and `c8_remediation.py`; the derived counts are shipped in `evidence/c6_drugbank_census.json` and `evidence/c8_remediation.json`. |
 | `data/` | No downloaded corpora copied into paper directory |
 | `__pycache__/` | Python bytecode |
 | `.git/` | Repository history |

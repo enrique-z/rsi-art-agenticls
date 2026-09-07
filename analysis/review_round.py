@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""review_round.py — the four analyses authorised by the 2026-09-07 review round.
+"""review_round.py — the four analyses run in the 2026-09-07 analysis round.
 
 Every one of these reuses artefacts that already exist on disk; none re-runs a
 model-training sweep and none touches an existing ledger row.  Methodology is

@@ -159,6 +159,88 @@ for these rows, they should be converted to `\StampedCell`.**
   (`s1b_*::n_leaked` = 836 and 1,013) are stamped cells and are now printed
   beside them (DOMAIN_AUDIT row 22).
 
+## Fourth analysis round, 2026-09-07 (C8 remediation ladder + interval-degeneracy audit)
+
+**This registry was written before the rows below were added; `evidence/agenticls-rsi-leakage_ledger.jsonl`
+is the authority.** The section that precedes this one reports 309 ledger rows and 60 `must_print`;
+both counts are **superseded** — the shipped ledger and stamp manifest carry **322 rows, 65
+`must_print`**, and the guard resolves 276 stamped cells against them (`build.guard.log`). The 13
+rows added after the third round are transcribed below directly from the ledger; no verdict is
+restated or reinterpreted here.
+
+### Rows ADDED (values quoted from the ledger)
+
+- **C8, does the R6 remedy work? — pre-registered, and it did not reproduce.** The design,
+  primary quantity and the reporting rule for every outcome were fixed in
+  `C8_PRECOMMITMENT_2026-09-07.md` (SHA-256 `79d502ef…`, recorded in
+  `evidence/c8_remediation.json`) before `analysis/c8_remediation.py` was written. The loop was to
+  be re-scored on progressively stricter decontaminations (`clean@0.9/ChEMBL`,
+  `clean@0.9/union`, `clean@0.8/union`, `clean@0.7/union`) from the recorded curator selections,
+  with no new model calls. The pre-committed reproduction check failed:
+  `c8::holdout_repro_deviation` = **0.0062** against a tolerance of **0.0005**, so
+  **outcome D of the pre-commitment fired and no re-scored number is published**. The full
+  per-unit table is shipped in `evidence/c8_remediation.json` for audit.
+- **Interval-degeneracy audit.** `ci_audit::n_intervals` = **111** intervals reaching the PDF or
+  the ledger were resolved to their resampling unit and unit count by
+  `analysis/ci_degeneracy_audit.py`; `ci_audit::n_degenerate` = **3** have percentile bounds that
+  coincide with the [min, max] of their units or have zero width
+  (`r2_bbb_martins_vs_own_trainval::near_pair_stat`, `::pair_diff`, `::random_pair_stat`).
+- **Paired-t intervals beside the percentile bootstraps.** A percentile bootstrap is degenerate at
+  very small n, so a paired-t interval is reported alongside the pooled bootstrap for the same
+  units. `s2_pooled::overstatement_t_ci_low/high` = **[+0.0021, +0.0411]** over 6 curator x seed
+  units; the five C7 paired quantities get the same treatment —
+  `c7_paired::gain_scaffold_holdout_t` **[−0.0236, +0.0370]**,
+  `gain_full_test_t` **[−0.0155, +0.0196]**,
+  `gain_nonleaked_test_t` **[−0.0426, +0.0308]**,
+  `overstatement_t` **[−0.0183, +0.0342]**.
+
+## Third analysis round, 2026-09-07 (experiments C7 and C6 + design rule R6)
+
+Ledger re-diffed against the previous revision: **205 pre-existing rows unchanged, 0 removed,
+104 added** (309 rows, 60 `must_print`). Two new scripts, both reusing artefacts on
+disk: `analysis/s2_shuffled_feedback.py` (C7) and `analysis/c6_drugbank_census.py` (C6).
+
+### Claims ADDED
+
+- **C7, feedback-shuffled control arm — a pre-registered NULL.** Design, primary
+  quantities and the reporting rule for every outcome were fixed in
+  `C7_PRECOMMITMENT_2026-09-07.md` and hashed (`f885a47c…`) before the implementation
+  was written. Paired real-minus-shuffled: hold-out
+  `c7_paired::gain_scaffold_holdout` = +0.0067 [−0.0132, +0.0297]; full test +0.0020;
+  clean subset −0.0059; overstatement +0.0080 — **every interval spans zero**.
+  Selection agreement `c7_selection::jaccard` = 0.2494 [0.1593, 0.3460]. 18 calls,
+  0 fallbacks. **Claim: benchmark feedback changed what this curator selected but not
+  where the loop ended.** In the abstract, per the pre-committed rule.
+- **C6, DrugBank second-corpus census.** `c6_drugbank::corpus_size` = 12,293;
+  `c6_*::union_rate_0p9` = 94.58 / 99.76 / 51.23%; clean subsets 982→973, 25→22, 4→2.
+  **Claim: our rates are a lower bound, measured rather than asserted, and
+  "leakage-clean" is corpus-relative — but the increments are small, so the headline
+  is not an artefact of one corpus choice.**
+- **Design rule R6 (Decision 10).** "Fix the split, not the curator." Every clause
+  restates a stamped row; no extrapolation. "Five design rules" → six in the abstract,
+  the contribution list and the conclusion.
+
+### Pre-commitment deviation, disclosed
+
+The C7 pre-commitment's outcome-A row was a conjunction — interval includes zero *and*
+selection agreement is high. **The performance half held; the agreement half did not**
+(Jaccard 0.2494 is low). The paper therefore states the sharper claim the data supports
+rather than the weaker one row A anticipated, and the failed conjunct is recorded in §7
+of the pre-commitment file with both the pre-run and post-run hashes published.
+
+### Claims unchanged
+
+Both claims weakened in round one **stay weakened**: no arm-versus-control separation
+(p = 0.131), and no non-overlap inference. The raw/matched **bracket stays a bracket** —
++0.1595 lower bound, +0.4093 upper bound, neither claimed as the estimate.
+
+### Structural change
+
+The §7 closing cost paragraph and the §3 C6 paragraph were removed to pay for R6, the
+C7 paragraph and the abstract revision within the 9-page cap; the C6 result moved into
+§9 Limitations, where the hedge it corrects already lived. All 60 `must_print` rows are
+printed (guard verifies on every build).
+
 ## Second analysis round, 2026-09-07 (experiments C1, C2, C5 + matching ladder)
 
 Three authorised analyses and one required reframing were run. **No pre-existing

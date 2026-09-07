@@ -1,9 +1,9 @@
 [guard] manuscript      : main.tex
-[guard] manifest        : agenticls-rsi-leakage_stamp_manifest.json (309 rows)
-[guard] ledger verdicts : 309
-[guard] required rows   : 60 must_print, 60 of them printed
-[guard] reference rows  : 147 recorded for audit, not printed in the manuscript
-[guard] macros          : 261 StampedCell, 120 SafeNum, 0 ResultCell
+[guard] manifest        : agenticls-rsi-leakage_stamp_manifest.json (322 rows)
+[guard] ledger verdicts : 322
+[guard] required rows   : 65 must_print, 65 of them printed
+[guard] reference rows  : 148 recorded for audit, not printed in the manuscript
+[guard] macros          : 276 StampedCell, 124 SafeNum, 0 ResultCell
 [guard] mode            : strict
 [guard] QD enforce      : off (pilot)
 [guard] WARN  FG-2 safenum-unguarded: line 63: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
@@ -12,7 +12,7 @@
 [guard] WARN  FG-2 safenum-unstamped: line 103: \SafeNum{0.1567} matches manifest row 'r3_solubility_aqsoldb_a2_minus_b_random_forest::paired_difference_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{0.1567}
 [guard] WARN  FG-2 safenum-unguarded: line 107: \SafeNum{0.0085} does not appear in the manifest — unguarded numeric literal
 [guard] WARN  FG-2 safenum-unguarded: line 108: \SafeNum{0.0353} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 108: \SafeNum{0.0021} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 108: \SafeNum{0.0021} matches manifest row 's2_pooled::overstatement_t_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{0.0021}
 [guard] WARN  FG-2 safenum-unguarded: line 198: \SafeNum{609} does not appear in the manifest — unguarded numeric literal
 [guard] WARN  FG-2 safenum-unguarded: line 199: \SafeNum{17} does not appear in the manifest — unguarded numeric literal
 [guard] WARN  FG-2 safenum-unguarded: line 199: \SafeNum{612} does not appear in the manifest — unguarded numeric literal
@@ -23,60 +23,58 @@
 [guard] WARN  FG-2 safenum-unguarded: line 202: \SafeNum{40} does not appear in the manifest — unguarded numeric literal
 [guard] WARN  FG-2 safenum-unguarded: line 213: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
 [guard] WARN  FG-2 safenum-unguarded: line 220: \SafeNum{200} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 230: \SafeNum{1.5} matches manifest row 's1_solubility_aqsoldb::own_trainval_rate_0p9' but is not a \StampedCell — consider \StampedCell{...}{...}{1.5}
-[guard] WARN  FG-2 safenum-unguarded: line 235: \SafeNum{15} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 251: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 269: \SafeNum{17} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 269: \SafeNum{895} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 270: \SafeNum{34} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 270: \SafeNum{658} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 272: \SafeNum{202} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 280: \SafeNum{200} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 284: \SafeNum{90} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 290: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 329: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 343: \SafeNum{0.95} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 346: \SafeNum{91.07} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 346: \SafeNum{95.79} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 353: \SafeNum{98.78} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 353: \SafeNum{99.81} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 358: \SafeNum{16.2} matches manifest row 's1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{16.2}
-[guard] WARN  FG-2 safenum-unstamped: line 358: \SafeNum{21.47} matches manifest row 's1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{21.47}
-[guard] WARN  FG-2 safenum-unguarded: line 360: \SafeNum{48.58} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 360: \SafeNum{52.97} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 365: \SafeNum{5.24} matches manifest row 's1_solubility_aqsoldb::endpoint_pool_rate_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{5.24}
-[guard] WARN  FG-2 safenum-unstamped: line 365: \SafeNum{7.36} matches manifest row 's1_solubility_aqsoldb::endpoint_pool_rate_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{7.36}
-[guard] WARN  FG-2 safenum-unguarded: line 385: \SafeNum{20} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 391: \SafeNum{48} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 391: \SafeNum{58} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 508: \SafeNum{157} matches manifest row 's1_lipophilicity_astrazeneca::n_leaked_endpoint_pool' but is not a \StampedCell — consider \StampedCell{...}{...}{157}
-[guard] WARN  FG-2 safenum-unguarded: line 516: \SafeNum{-1.7484} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 516: \SafeNum{-1.3339} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 516: \SafeNum{124} matches manifest row 's1_solubility_aqsoldb::n_leaked_endpoint_pool' but is not a \StampedCell — consider \StampedCell{...}{...}{124}
-[guard] WARN  FG-2 safenum-unguarded: line 615: \SafeNum{1000} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 623: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 692: \SafeNum{0.0021} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 697: \SafeNum{0.0182} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 702: \SafeNum{0.025} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 706: \SafeNum{0.0085} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 706: \SafeNum{0.0353} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 715: \SafeNum{0.0085} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 715: \SafeNum{0.0353} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 721: \SafeNum{0.0021} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 745: \SafeNum{16} matches manifest row 's2_cluster_readout::n_universe_near_duplicates' but is not a \StampedCell — consider \StampedCell{...}{...}{16}
-[guard] WARN  FG-2 safenum-unguarded: line 758: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unstamped: line 761: \SafeNum{0.1593} matches manifest row 'c7_selection::jaccard_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{0.1593}
-[guard] WARN  FG-2 safenum-unstamped: line 761: \SafeNum{0.346} matches manifest row 'c7_selection::jaccard_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{0.346}
-[guard] WARN  FG-2 safenum-unstamped: line 764: \SafeNum{-0.0132} matches manifest row 'c7_paired::gain_scaffold_holdout_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{-0.0132}
-[guard] WARN  FG-2 safenum-unstamped: line 764: \SafeNum{0.0297} matches manifest row 'c7_paired::gain_scaffold_holdout_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{0.0297}
-[guard] WARN  FG-2 safenum-unguarded: line 994: \SafeNum{202} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1002: \SafeNum{200} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1003: \SafeNum{259} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1035: \SafeNum{259} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1039: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1039: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1045: \SafeNum{17} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1046: \SafeNum{15} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1047: \SafeNum{256} does not appear in the manifest — unguarded numeric literal
-[guard] WARN  FG-2 safenum-unguarded: line 1048: \SafeNum{50} does not appear in the manifest — unguarded numeric literal
-[guard] OK — 261 stamped cell(s) resolve against the manifest
+[guard] WARN  FG-2 safenum-unstamped: line 229: \SafeNum{1.5} matches manifest row 's1_solubility_aqsoldb::own_trainval_rate_0p9' but is not a \StampedCell — consider \StampedCell{...}{...}{1.5}
+[guard] WARN  FG-2 safenum-unguarded: line 234: \SafeNum{15} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 250: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 268: \SafeNum{17} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 268: \SafeNum{895} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 269: \SafeNum{34} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 269: \SafeNum{658} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 271: \SafeNum{202} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 279: \SafeNum{200} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 283: \SafeNum{90} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 289: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 333: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 347: \SafeNum{0.95} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 350: \SafeNum{91.07} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 350: \SafeNum{95.79} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 357: \SafeNum{98.78} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 357: \SafeNum{99.81} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 362: \SafeNum{16.2} matches manifest row 's1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{16.2}
+[guard] WARN  FG-2 safenum-unstamped: line 362: \SafeNum{21.47} matches manifest row 's1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{21.47}
+[guard] WARN  FG-2 safenum-unguarded: line 364: \SafeNum{48.58} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 364: \SafeNum{52.97} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 369: \SafeNum{5.24} matches manifest row 's1_solubility_aqsoldb::endpoint_pool_rate_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{5.24}
+[guard] WARN  FG-2 safenum-unstamped: line 369: \SafeNum{7.36} matches manifest row 's1_solubility_aqsoldb::endpoint_pool_rate_ci_high' but is not a \StampedCell — consider \StampedCell{...}{...}{7.36}
+[guard] WARN  FG-2 safenum-unguarded: line 389: \SafeNum{20} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 395: \SafeNum{48} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 395: \SafeNum{58} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 511: \SafeNum{157} matches manifest row 's1_lipophilicity_astrazeneca::n_leaked_endpoint_pool' but is not a \StampedCell — consider \StampedCell{...}{...}{157}
+[guard] WARN  FG-2 safenum-unguarded: line 519: \SafeNum{-1.7484} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 519: \SafeNum{-1.3339} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 519: \SafeNum{124} matches manifest row 's1_solubility_aqsoldb::n_leaked_endpoint_pool' but is not a \StampedCell — consider \StampedCell{...}{...}{124}
+[guard] WARN  FG-2 safenum-unguarded: line 619: \SafeNum{1000} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 627: \SafeNum{95} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 696: \SafeNum{0.0021} matches manifest row 's2_pooled::overstatement_t_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{0.0021}
+[guard] WARN  FG-2 safenum-unguarded: line 701: \SafeNum{0.0182} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 706: \SafeNum{0.025} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 710: \SafeNum{0.0085} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 710: \SafeNum{0.0353} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 719: \SafeNum{0.0085} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 719: \SafeNum{0.0353} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 728: \SafeNum{0.0021} matches manifest row 's2_pooled::overstatement_t_ci_low' but is not a \StampedCell — consider \StampedCell{...}{...}{0.0021}
+[guard] WARN  FG-2 safenum-unguarded: line 764: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1004: \SafeNum{202} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1012: \SafeNum{200} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1013: \SafeNum{259} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1045: \SafeNum{259} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1049: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1049: \SafeNum{18} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1057: \SafeNum{27} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unstamped: line 1057: \SafeNum{025} matches manifest row 's1b_bbb_martins::n_nonleaked' but is not a \StampedCell — consider \StampedCell{...}{...}{025}
+[guard] WARN  FG-2 safenum-unguarded: line 1063: \SafeNum{1000} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1099: \SafeNum{17} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1100: \SafeNum{15} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1101: \SafeNum{256} does not appear in the manifest — unguarded numeric literal
+[guard] WARN  FG-2 safenum-unguarded: line 1102: \SafeNum{50} does not appear in the manifest — unguarded numeric literal
+[guard] OK — 276 stamped cell(s) resolve against the manifest

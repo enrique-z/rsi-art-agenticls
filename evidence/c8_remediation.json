@@ -1,0 +1,99 @@
+{
+  "generated_utc": "2026-09-07T11:58:25Z",
+  "precommitment_file": "C8_PRECOMMITMENT_2026-09-07.md",
+  "precommitment_sha256": "79d502ef1b544cb2c833e9c6fc1e662c6d58dc2ee426b8954751e126b2228e22",
+  "benchmark": "solubility_aqsoldb",
+  "n_units": 6,
+  "unit": "LLM curator x seed",
+  "drugbank_distinct_structures": 12293,
+  "subset_sizes": {
+    "full": 1995,
+    "clean_0p9_chembl": 982,
+    "clean_0p9_union": 973,
+    "clean_0p8_union": 907,
+    "clean_0p7_union": 760
+  },
+  "min_subset_n": 20,
+  "reproduction_check": {
+    "max_holdout_gain_deviation": 0.006232465644068208,
+    "tolerance": 0.0005,
+    "reproduced": false,
+    "note": "the hold-out does not depend on the test split, so a mismatch would void the re-scoring (pre-commitment outcome D)"
+  },
+  "per_unit": [
+    {
+      "arm": "qwen2.5-coder:14b",
+      "seed": 0,
+      "gains": {
+        "full": 0.025458435703066273,
+        "holdout": -0.06820419826962054,
+        "clean_0p9_chembl": -0.00528612583483179,
+        "clean_0p9_union": -0.004945302412544983,
+        "clean_0p8_union": -0.009682053301609095,
+        "clean_0p7_union": -0.001179497182625333
+      }
+    },
+    {
+      "arm": "qwen2.5-coder:14b",
+      "seed": 1,
+      "gains": {
+        "full": -0.003821692656521325,
+        "holdout": -0.05905032816979694,
+        "clean_0p9_chembl": -0.015369762471226789,
+        "clean_0p9_union": -0.015867468454249245,
+        "clean_0p8_union": -0.019712818539990185,
+        "clean_0p7_union": -0.010287277485918622
+      }
+    },
+    {
+      "arm": "qwen2.5-coder:14b",
+      "seed": 2,
+      "gains": {
+        "full": -0.008375461169846554,
+        "holdout": -0.013616399009447222,
+        "clean_0p9_chembl": -0.010162441373954056,
+        "clean_0p9_union": -0.009943331289925972,
+        "clean_0p8_union": -0.008494088711357595,
+        "clean_0p7_union": -0.015897970031986564
+      }
+    },
+    {
+      "arm": "qwen3:8b",
+      "seed": 0,
+      "gains": {
+        "full": -0.00526319336720249,
+        "holdout": -0.025349728005205185,
+        "clean_0p9_chembl": -0.05524899909474934,
+        "clean_0p9_union": -0.05615472493425533,
+        "clean_0p8_union": -0.06240052952937791,
+        "clean_0p7_union": -0.05582677893418708
+      }
+    },
+    {
+      "arm": "qwen3:8b",
+      "seed": 1,
+      "gains": {
+        "full": 0.013153798238705106,
+        "holdout": -0.020468519363515347,
+        "clean_0p9_chembl": -0.0006690010944425673,
+        "clean_0p9_union": -0.0024931549555793353,
+        "clean_0p8_union": -0.006784401942256046,
+        "clean_0p7_union": -0.0103018683431646
+      }
+    },
+    {
+      "arm": "qwen3:8b",
+      "seed": 2,
+      "gains": {
+        "full": 0.03164873147234415,
+        "holdout": -0.016369757068518287,
+        "clean_0p9_chembl": 0.022719823860620325,
+        "clean_0p9_union": 0.02250517995793122,
+        "clean_0p8_union": 0.02136483059025851,
+        "clean_0p7_union": 0.028481521138695953
+      }
+    }
+  ],
+  "overstatement": {},
+  "verdict": "VOID \u2014 reproduction failed; no re-scored number is published"
+}

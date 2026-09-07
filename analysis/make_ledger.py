@@ -417,6 +417,91 @@ def main() -> int:
             f"parse fallbacks in the shuffled-feedback arm across {c7['n_calls']} calls",
             metric="count", must_print=False)
 
+    # ---------------- small-n interval robustness (2026-09-07) --------------
+    # A percentile bootstrap at n=3 is exactly [min, max] of the three values, so
+    # "excludes zero" would be forced by the sign alone.  None of our intervals is
+    # over n=3 -- the pooled ones are n=6 and n=18 -- but we report a paired-t
+    # interval beside the pooled bootstrap because the t interval has no such
+    # degeneracy at any n.  Computed here from the per-seed values already in
+    # s2_rsi_results.json; no new measurement.
+    s2p = EV / "s2_rsi_results.json"
+    if s2p.exists():
+        import math
+        s2b = json.loads(s2p.read_text())
+        per = []
+        for arm, v in s2b["arms"].items():
+            if v["curator"] == "random":
+                continue
+            per += [s["gain_full_test"] - s["gain_nonleaked_test"] for s in v["per_seed"]]
+        n = len(per)
+        mean = sum(per) / n
+        sd = math.sqrt(sum((x - mean) ** 2 for x in per) / (n - 1))
+        # two-sided 97.5th percentile of Student t at n-1 = 5 df
+        tcrit = 2.570581835636197
+        half = tcrit * sd / math.sqrt(n)
+        add("s2_pooled::overstatement_t_ci_low", round(mean - half, 4), str(s2p),
+            f"paired-t 95% lower bound for the pooled overstatement over {n} "
+            f"curator x seed units; reported beside the percentile bootstrap because "
+            f"a t interval is not degenerate at small n", metric="ci_bound")
+        add("s2_pooled::overstatement_t_ci_high", round(mean + half, 4), str(s2p),
+            "paired-t 95% upper bound for the pooled overstatement",
+            metric="ci_bound", must_print=False)
+
+    # The same paired-t treatment for the shuffled-feedback arm's four paired
+    # quantities, which sit on the same 6 curator x seed units.  Reported beside
+    # every c7 bootstrap so that a null does not rest on a small-n percentile.
+    c7p = EV / "s2_shuffled_feedback.json"
+    if c7p.exists():
+        import math
+        c7b = json.loads(c7p.read_text())
+        for k, v in c7b["paired_real_minus_shuffled"].items():
+            per = list(v["per_unit"])
+            n = len(per)
+            mean = sum(per) / n
+            sd = math.sqrt(sum((x - mean) ** 2 for x in per) / (n - 1))
+            tcrit = 2.570581835636197  # 97.5th pct of Student t, 5 df
+            half = tcrit * sd / math.sqrt(n)
+            add(f"c7_paired::{k}_t_ci_low", round(mean - half, 4), str(c7p),
+                f"paired-t 95% lower bound over the same {n} curator x seed units "
+                f"as the percentile bootstrap for {k}", metric="ci_bound",
+                must_print=(k == "gain_scaffold_holdout"))
+            add(f"c7_paired::{k}_t_ci_high", round(mean + half, 4), str(c7p),
+                f"paired-t 95% upper bound for {k}", metric="ci_bound",
+                must_print=False)
+
+    # ---------------- interval degeneracy audit (2026-09-07) ----------------
+    # analysis/ci_degeneracy_audit.py walks every interval that reaches the PDF
+    # or the ledger, resolves the resampling unit behind it, and flags any whose
+    # percentile bounds coincide with the [min, max] of its units or have zero
+    # width.  Its counts are stamped here so the paper can quote them.
+    audit_p = EV / "ci_degeneracy_audit.json"
+    if audit_p.exists():
+        aud = json.loads(audit_p.read_text())
+        add("ci_audit::n_intervals", aud["n_intervals_audited"], str(audit_p),
+            "intervals reaching the PDF or the ledger, each resolved to its "
+            "resampling unit and unit count by analysis/ci_degeneracy_audit.py",
+            metric="count")
+        add("ci_audit::n_degenerate", aud["n_degenerate"], str(audit_p),
+            "intervals whose percentile bounds coincide with the [min, max] of "
+            "their units or have zero width: " +
+            (", ".join(aud["degenerate_intervals"]) or "none"),
+            metric="count")
+
+    # ---------------- C8, and why nothing from it is published --------------
+    c8p = EV / "c8_remediation.json"
+    if c8p.exists():
+        c8 = json.loads(c8p.read_text())
+        rep = c8["reproduction_check"]
+        add("c8::holdout_repro_deviation", round(rep["max_holdout_gain_deviation"], 4),
+            str(c8p),
+            "maximum absolute deviation between the C8 re-fit hold-out gains and "
+            "the published S2 hold-out gains, against a pre-committed tolerance of "
+            f"{rep['tolerance']}; the hold-out does not depend on the test split, so "
+            "a mismatch voids the re-scoring under outcome D of the C8 "
+            "pre-commitment and no re-scored number is published",
+            metric="max_abs_deviation",
+            must_print=True)
+
     # ---------------- write -------------------------------------------------
     with open(LEDGER, "w") as fh:
         for r in ROWS:

@@ -1544,6 +1544,71 @@
       "value": 0,
       "source": "agenticls-rsi-leakage_ledger.jsonl:309",
       "must_print": false
+    },
+    "s2_pooled::overstatement_t_ci_low": {
+      "value": 0.0021,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:310",
+      "must_print": true
+    },
+    "s2_pooled::overstatement_t_ci_high": {
+      "value": 0.0411,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:311",
+      "must_print": false
+    },
+    "c7_paired::gain_scaffold_holdout_t_ci_low": {
+      "value": -0.0236,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:312",
+      "must_print": true
+    },
+    "c7_paired::gain_scaffold_holdout_t_ci_high": {
+      "value": 0.037,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:313",
+      "must_print": false
+    },
+    "c7_paired::gain_full_test_t_ci_low": {
+      "value": -0.0155,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:314",
+      "must_print": false
+    },
+    "c7_paired::gain_full_test_t_ci_high": {
+      "value": 0.0196,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:315",
+      "must_print": false
+    },
+    "c7_paired::gain_nonleaked_test_t_ci_low": {
+      "value": -0.0426,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:316",
+      "must_print": false
+    },
+    "c7_paired::gain_nonleaked_test_t_ci_high": {
+      "value": 0.0308,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:317",
+      "must_print": false
+    },
+    "c7_paired::overstatement_t_ci_low": {
+      "value": -0.0183,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:318",
+      "must_print": false
+    },
+    "c7_paired::overstatement_t_ci_high": {
+      "value": 0.0342,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:319",
+      "must_print": false
+    },
+    "ci_audit::n_intervals": {
+      "value": 111,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:320",
+      "must_print": true
+    },
+    "ci_audit::n_degenerate": {
+      "value": 3,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:321",
+      "must_print": true
+    },
+    "c8::holdout_repro_deviation": {
+      "value": 0.0062,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:322",
+      "must_print": true
     }
   }
 }
