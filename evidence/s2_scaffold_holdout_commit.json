@@ -1,0 +1,9 @@
+{
+  "rule": "sha256('agenticls-rsi-leakage|' + bemis_murcko_smiles)[:8] % 5 == 0",
+  "n_scaffolds_total": 17612,
+  "n_scaffolds_heldout": 3609,
+  "n_holdout_compounds": 7338,
+  "n_universe_compounds": 27230,
+  "n_excluded_exact_tdc_test_duplicates": 90,
+  "holdout_sha256": "4be029d113ade05947199a17f76a769df4e4a98e8bb0fef3588a13f89198c9e2"
+}

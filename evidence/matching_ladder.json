@@ -1,0 +1,138 @@
+{
+  "generated_utc": "2026-09-07T07:56:58Z",
+  "benchmark": "solubility_aqsoldb",
+  "purpose": "print the R3 decomposition as a ladder, not one number",
+  "strata": {
+    "mw_only": "MW quintile",
+    "label_only": "label quintile",
+    "mw_and_label": "MW quintile x label quintile"
+  },
+  "rungs": {
+    "A1_chembl_naive|knn_tanimoto": {
+      "mw_only": {
+        "matched_gap": 0.6101,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.327,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.3285,
+        "n_matched_per_side": 796
+      }
+    },
+    "A1_chembl_naive|linear_ecfp": {
+      "mw_only": {
+        "matched_gap": 0.3722,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.1304,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.1441,
+        "n_matched_per_side": 796
+      }
+    },
+    "A1_chembl_naive|random_forest": {
+      "mw_only": {
+        "matched_gap": 0.4289,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.1664,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.1881,
+        "n_matched_per_side": 796
+      }
+    },
+    "A2_chembl_dedup|knn_tanimoto": {
+      "mw_only": {
+        "matched_gap": 0.5807,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.2968,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.2926,
+        "n_matched_per_side": 796
+      }
+    },
+    "A2_chembl_dedup|linear_ecfp": {
+      "mw_only": {
+        "matched_gap": 0.3676,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.1223,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.1382,
+        "n_matched_per_side": 796
+      }
+    },
+    "A2_chembl_dedup|random_forest": {
+      "mw_only": {
+        "matched_gap": 0.4079,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.144,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.1595,
+        "n_matched_per_side": 796
+      }
+    },
+    "B_tdc_trainval|knn_tanimoto": {
+      "mw_only": {
+        "matched_gap": 0.2132,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.1013,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.1074,
+        "n_matched_per_side": 796
+      }
+    },
+    "B_tdc_trainval|linear_ecfp": {
+      "mw_only": {
+        "matched_gap": -0.1096,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": -0.1235,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": -0.1452,
+        "n_matched_per_side": 796
+      }
+    },
+    "B_tdc_trainval|random_forest": {
+      "mw_only": {
+        "matched_gap": 0.2169,
+        "n_matched_per_side": 914
+      },
+      "label_only": {
+        "matched_gap": 0.0661,
+        "n_matched_per_side": 856
+      },
+      "mw_and_label": {
+        "matched_gap": 0.0689,
+        "n_matched_per_side": 796
+      }
+    }
+  }
+}

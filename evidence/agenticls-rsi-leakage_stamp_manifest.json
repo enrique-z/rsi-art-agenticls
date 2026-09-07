@@ -1,0 +1,1549 @@
+{
+  "ledger_rows": {
+    "s1_corpus::n_chembl_fingerprints": {
+      "value": 2854800,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:1",
+      "must_print": true
+    },
+    "s1_corpus::audit_max_abs_deviation": {
+      "value": 0.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:2",
+      "must_print": false
+    },
+    "s1_bbb_martins::n_test": {
+      "value": 406,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:3",
+      "must_print": true
+    },
+    "s1_bbb_martins::leak_rate_0p9": {
+      "value": 93.84,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:4",
+      "must_print": true
+    },
+    "s1_bbb_martins::leak_rate_0p95": {
+      "value": 92.86,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:5",
+      "must_print": true
+    },
+    "s1_bbb_martins::leak_rate_1p0": {
+      "value": 91.63,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:6",
+      "must_print": false
+    },
+    "s1_bbb_martins::exact_dup_rate": {
+      "value": 85.47,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:7",
+      "must_print": true
+    },
+    "s1_bbb_martins::median_nn_sim": {
+      "value": 1.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:8",
+      "must_print": false
+    },
+    "s1_bbb_martins::own_trainval_rate_0p9": {
+      "value": 0.25,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:9",
+      "must_print": true
+    },
+    "s1_bbb_martins::scaffold_leak_rate": {
+      "value": 93.72,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:10",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::n_test": {
+      "value": 840,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:11",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::leak_rate_0p9": {
+      "value": 99.52,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:12",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::leak_rate_0p95": {
+      "value": 99.52,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:13",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::leak_rate_1p0": {
+      "value": 99.52,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:14",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::exact_dup_rate": {
+      "value": 99.29,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:15",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::median_nn_sim": {
+      "value": 1.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:16",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::own_trainval_rate_0p9": {
+      "value": 2.14,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:17",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::scaffold_leak_rate": {
+      "value": 99.39,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:18",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::n_test": {
+      "value": 1995,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:19",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::leak_rate_0p9": {
+      "value": 50.78,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:20",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::leak_rate_0p95": {
+      "value": 49.67,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:21",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::leak_rate_1p0": {
+      "value": 48.97,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:22",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::exact_dup_rate": {
+      "value": 42.26,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:23",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::median_nn_sim": {
+      "value": 0.9355,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:24",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::own_trainval_rate_0p9": {
+      "value": 1.5,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:25",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::scaffold_leak_rate": {
+      "value": 58.55,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:26",
+      "must_print": false
+    },
+    "s1_bbb_martins::internal_duplicate_rows": {
+      "value": 12,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:27",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::internal_duplicate_rows": {
+      "value": 0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:28",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::internal_duplicate_rows": {
+      "value": 0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:29",
+      "must_print": false
+    },
+    "s1_corpus::n_pairwise_comparisons": {
+      "value": 46276308000,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:30",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::gap": {
+      "value": -0.0499,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:31",
+      "must_print": true
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::gap_mol_ci_low": {
+      "value": -0.1492,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:32",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::gap_mol_ci_high": {
+      "value": 0.1359,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:33",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::score_leaked": {
+      "value": 0.8531,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:34",
+      "must_print": true
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::score_nonleaked": {
+      "value": 0.903,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:35",
+      "must_print": true
+    },
+    "s1b_bbb_martins_B_tdc_trainval_random_forest::spearman_rho_sim_error": {
+      "value": -0.0866,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:36",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::gap": {
+      "value": 0.0544,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:37",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::gap_mol_ci_low": {
+      "value": -0.1066,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:38",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.2519,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:39",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::score_leaked": {
+      "value": 0.8538,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:40",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::score_nonleaked": {
+      "value": 0.7993,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:41",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_linear_ecfp::spearman_rho_sim_error": {
+      "value": -0.0283,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:42",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::gap": {
+      "value": -0.0868,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:43",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::gap_mol_ci_low": {
+      "value": -0.1991,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:44",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.1085,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:45",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::score_leaked": {
+      "value": 0.8176,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:46",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::score_nonleaked": {
+      "value": 0.9043,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:47",
+      "must_print": false
+    },
+    "s1b_bbb_martins_B_tdc_trainval_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.0282,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:48",
+      "must_print": false
+    },
+    "s1b_bbb_martins::n_leaked": {
+      "value": 381,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:49",
+      "must_print": false
+    },
+    "s1b_bbb_martins::n_nonleaked": {
+      "value": 25,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:50",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::gap": {
+      "value": 0.4028,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:51",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::gap_mol_ci_low": {
+      "value": -0.4352,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:52",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::gap_mol_ci_high": {
+      "value": 1.4703,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:53",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::score_leaked": {
+      "value": 0.7237,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:54",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::score_nonleaked": {
+      "value": 1.1265,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:55",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_random_forest::spearman_rho_sim_error": {
+      "value": -0.0202,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:56",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::gap": {
+      "value": -0.1855,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:57",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::gap_mol_ci_low": {
+      "value": -0.5565,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:58",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.1698,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:59",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::score_leaked": {
+      "value": 0.8561,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:60",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::score_nonleaked": {
+      "value": 0.6706,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:61",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_linear_ecfp::spearman_rho_sim_error": {
+      "value": 0.0109,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:62",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::gap": {
+      "value": -0.0014,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:63",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::gap_mol_ci_low": {
+      "value": -0.675,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:64",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.7339,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:65",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::score_leaked": {
+      "value": 0.9103,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:66",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::score_nonleaked": {
+      "value": 0.9088,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:67",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A1_chembl_naive_knn_tanimoto::spearman_rho_sim_error": {
+      "value": 0.005,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:68",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::gap": {
+      "value": 0.365,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:69",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::gap_mol_ci_low": {
+      "value": -0.4901,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:70",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::gap_mol_ci_high": {
+      "value": 1.4245,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:71",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::score_leaked": {
+      "value": 0.7858,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:72",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::score_nonleaked": {
+      "value": 1.1508,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:73",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_random_forest::spearman_rho_sim_error": {
+      "value": -0.0142,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:74",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::gap": {
+      "value": -0.1972,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:75",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::gap_mol_ci_low": {
+      "value": -0.6292,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:76",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.1914,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:77",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::score_leaked": {
+      "value": 0.8841,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:78",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::score_nonleaked": {
+      "value": 0.6869,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:79",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_linear_ecfp::spearman_rho_sim_error": {
+      "value": 0.0163,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:80",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::gap": {
+      "value": 0.0781,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:81",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::gap_mol_ci_low": {
+      "value": -0.6385,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:82",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.812,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:83",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::score_leaked": {
+      "value": 0.9528,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:84",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::score_nonleaked": {
+      "value": 1.0309,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:85",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_A2_chembl_dedup_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.0057,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:86",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::gap": {
+      "value": 0.7139,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:87",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::gap_mol_ci_low": {
+      "value": -0.1216,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:88",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::gap_mol_ci_high": {
+      "value": 1.8382,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:89",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::score_leaked": {
+      "value": 0.7613,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:90",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::score_nonleaked": {
+      "value": 1.4752,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:91",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_random_forest::spearman_rho_sim_error": {
+      "value": -0.05,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:92",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::gap": {
+      "value": 1.1213,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:93",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::gap_mol_ci_low": {
+      "value": 0.0396,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:94",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::gap_mol_ci_high": {
+      "value": 2.0948,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:95",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::score_leaked": {
+      "value": 0.8182,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:96",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::score_nonleaked": {
+      "value": 1.9395,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:97",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_linear_ecfp::spearman_rho_sim_error": {
+      "value": -0.0664,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:98",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::gap": {
+      "value": 1.0162,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:99",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::gap_mol_ci_low": {
+      "value": -0.0258,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:100",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::gap_mol_ci_high": {
+      "value": 2.1926,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:101",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::score_leaked": {
+      "value": 0.7605,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:102",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::score_nonleaked": {
+      "value": 1.7767,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:103",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca_B_tdc_trainval_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.0677,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:104",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca::n_leaked": {
+      "value": 836,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:105",
+      "must_print": false
+    },
+    "s1b_lipophilicity_astrazeneca::n_nonleaked": {
+      "value": 4,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:106",
+      "must_print": true
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::gap": {
+      "value": 0.4293,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:107",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::gap_mol_ci_low": {
+      "value": 0.3167,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:108",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::gap_mol_ci_high": {
+      "value": 0.5447,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:109",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::score_leaked": {
+      "value": 1.5161,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:110",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::score_nonleaked": {
+      "value": 1.9455,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:111",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_random_forest::spearman_rho_sim_error": {
+      "value": -0.2311,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:112",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::gap": {
+      "value": 0.3975,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:113",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::gap_mol_ci_low": {
+      "value": 0.2875,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:114",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.5056,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:115",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::score_leaked": {
+      "value": 1.4026,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:116",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::score_nonleaked": {
+      "value": 1.8001,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:117",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::spearman_rho_sim_error": {
+      "value": -0.2134,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:118",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::gap": {
+      "value": 0.6283,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:119",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::gap_mol_ci_low": {
+      "value": 0.4937,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:120",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.7728,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:121",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::score_leaked": {
+      "value": 1.6379,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:122",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::score_nonleaked": {
+      "value": 2.2662,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:123",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.2231,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:124",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::gap": {
+      "value": 0.4093,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:125",
+      "must_print": true
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::gap_mol_ci_low": {
+      "value": 0.2949,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:126",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::gap_mol_ci_high": {
+      "value": 0.5262,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:127",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::score_leaked": {
+      "value": 1.5432,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:128",
+      "must_print": true
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::score_nonleaked": {
+      "value": 1.9524,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:129",
+      "must_print": true
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_random_forest::spearman_rho_sim_error": {
+      "value": -0.2194,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:130",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::gap": {
+      "value": 0.3895,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:131",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::gap_mol_ci_low": {
+      "value": 0.2808,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:132",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.504,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:133",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::score_leaked": {
+      "value": 1.4123,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:134",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::score_nonleaked": {
+      "value": 1.8017,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:135",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::spearman_rho_sim_error": {
+      "value": -0.2099,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:136",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::gap": {
+      "value": 0.5994,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:137",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::gap_mol_ci_low": {
+      "value": 0.4637,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:138",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.7388,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:139",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::score_leaked": {
+      "value": 1.6604,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:140",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::score_nonleaked": {
+      "value": 2.2598,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:141",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.2113,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:142",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::gap": {
+      "value": 0.2496,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:143",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::gap_mol_ci_low": {
+      "value": 0.1641,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:144",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::gap_mol_ci_high": {
+      "value": 0.338,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:145",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::score_leaked": {
+      "value": 1.1976,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:146",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::score_nonleaked": {
+      "value": 1.4472,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:147",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_random_forest::spearman_rho_sim_error": {
+      "value": -0.1053,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:148",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::gap": {
+      "value": -0.0717,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:149",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::gap_mol_ci_low": {
+      "value": -0.1751,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:150",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::gap_mol_ci_high": {
+      "value": 0.0323,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:151",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::score_leaked": {
+      "value": 1.5176,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:152",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::score_nonleaked": {
+      "value": 1.4458,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:153",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::spearman_rho_sim_error": {
+      "value": 0.01,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:154",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::gap": {
+      "value": 0.2386,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:155",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::gap_mol_ci_low": {
+      "value": 0.1424,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:156",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::gap_mol_ci_high": {
+      "value": 0.333,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:157",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::score_leaked": {
+      "value": 1.2541,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:158",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::score_nonleaked": {
+      "value": 1.4926,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:159",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::spearman_rho_sim_error": {
+      "value": -0.09,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:160",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb::n_leaked": {
+      "value": 1013,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:161",
+      "must_print": false
+    },
+    "s1b_solubility_aqsoldb::n_nonleaked": {
+      "value": 982,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:162",
+      "must_print": false
+    },
+    "r2_bbb_martins_vs_own_trainval::near_pair_stat": {
+      "value": 1.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:163",
+      "must_print": true
+    },
+    "r2_bbb_martins_vs_own_trainval::random_pair_stat": {
+      "value": 0.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:164",
+      "must_print": true
+    },
+    "r2_bbb_martins_vs_own_trainval::pair_diff": {
+      "value": 1.0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:165",
+      "must_print": true
+    },
+    "r3_bbb_martins_B_tdc_trainval_knn_tanimoto::matched_gap": {
+      "value": -0.0839,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:166",
+      "must_print": false
+    },
+    "r3_bbb_martins_B_tdc_trainval_linear_ecfp::matched_gap": {
+      "value": 0.0452,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:167",
+      "must_print": false
+    },
+    "r3_bbb_martins_B_tdc_trainval_random_forest::matched_gap": {
+      "value": -0.0495,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:168",
+      "must_print": false
+    },
+    "r3_bbb_martins_mw::smd": {
+      "value": -0.2617,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:169",
+      "must_print": false
+    },
+    "r3_bbb_martins_chembl_scaffold_count::smd": {
+      "value": 0.0855,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:170",
+      "must_print": false
+    },
+    "r2_lipophilicity_astrazeneca_vs_own_trainval::near_pair_stat": {
+      "value": 0.4739,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:171",
+      "must_print": true
+    },
+    "r2_lipophilicity_astrazeneca_vs_own_trainval::random_pair_stat": {
+      "value": 1.4861,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:172",
+      "must_print": true
+    },
+    "r2_lipophilicity_astrazeneca_vs_own_trainval::pair_diff": {
+      "value": -1.0122,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:173",
+      "must_print": true
+    },
+    "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::near_pair_stat": {
+      "value": 0.0808,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:174",
+      "must_print": true
+    },
+    "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::random_pair_stat": {
+      "value": 1.6181,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:175",
+      "must_print": true
+    },
+    "r2_lipophilicity_astrazeneca_vs_chembl_endpoint_pool::pair_diff": {
+      "value": -1.5372,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:176",
+      "must_print": true
+    },
+    "r3_lipophilicity_astrazeneca_mw::smd": {
+      "value": 2.1329,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:177",
+      "must_print": false
+    },
+    "r3_lipophilicity_astrazeneca_chembl_scaffold_count::smd": {
+      "value": -1.0143,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:178",
+      "must_print": false
+    },
+    "r2_solubility_aqsoldb_vs_own_trainval::near_pair_stat": {
+      "value": 1.6706,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:179",
+      "must_print": true
+    },
+    "r2_solubility_aqsoldb_vs_own_trainval::random_pair_stat": {
+      "value": 2.7077,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:180",
+      "must_print": true
+    },
+    "r2_solubility_aqsoldb_vs_own_trainval::pair_diff": {
+      "value": -1.0372,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:181",
+      "must_print": true
+    },
+    "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::near_pair_stat": {
+      "value": 0.6739,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:182",
+      "must_print": true
+    },
+    "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::random_pair_stat": {
+      "value": 1.5673,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:183",
+      "must_print": true
+    },
+    "r2_solubility_aqsoldb_vs_chembl_endpoint_pool::pair_diff": {
+      "value": -0.8934,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:184",
+      "must_print": true
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap": {
+      "value": 0.3285,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:185",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap": {
+      "value": 0.1441,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:186",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap": {
+      "value": 0.1881,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:187",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap": {
+      "value": 0.2926,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:188",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap": {
+      "value": 0.1382,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:189",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap": {
+      "value": 0.1595,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:190",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap": {
+      "value": 0.1074,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:191",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap": {
+      "value": -0.1452,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:192",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap": {
+      "value": 0.0689,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:193",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_mw::smd": {
+      "value": -0.2529,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:194",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_chembl_scaffold_count::smd": {
+      "value": -0.0441,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:195",
+      "must_print": false
+    },
+    "s2_random_curator_control::gain_full": {
+      "value": -0.0104,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:196",
+      "must_print": true
+    },
+    "s2_random_curator_control::gain_nonleaked": {
+      "value": -0.0125,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:197",
+      "must_print": true
+    },
+    "s2_random_curator_control::gain_holdout": {
+      "value": -0.0235,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:198",
+      "must_print": false
+    },
+    "s2_qwen2_5-coder_14b::gain_full": {
+      "value": -0.0059,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:199",
+      "must_print": true
+    },
+    "s2_qwen2_5-coder_14b::gain_nonleaked": {
+      "value": -0.0241,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:200",
+      "must_print": true
+    },
+    "s2_qwen2_5-coder_14b::gain_holdout": {
+      "value": -0.0482,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:201",
+      "must_print": false
+    },
+    "s2_qwen3_8b::gain_full": {
+      "value": 0.0094,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:202",
+      "must_print": true
+    },
+    "s2_qwen3_8b::gain_nonleaked": {
+      "value": -0.0156,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:203",
+      "must_print": true
+    },
+    "s2_qwen3_8b::gain_holdout": {
+      "value": -0.0204,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:204",
+      "must_print": false
+    },
+    "s2_pooled::overstatement": {
+      "value": 0.0216,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:205",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::endpoint_pool_rate_0p9": {
+      "value": 18.69,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:206",
+      "must_print": true
+    },
+    "s1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_low": {
+      "value": 16.2,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:207",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::endpoint_pool_rate_ci_high": {
+      "value": 21.47,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:208",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::endpoint_pool_size": {
+      "value": 17895,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:209",
+      "must_print": false
+    },
+    "s1_lipophilicity_astrazeneca::n_leaked_endpoint_pool": {
+      "value": 157,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:210",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::endpoint_pool_rate_0p9": {
+      "value": 6.22,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:211",
+      "must_print": true
+    },
+    "s1_solubility_aqsoldb::endpoint_pool_rate_ci_low": {
+      "value": 5.24,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:212",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::endpoint_pool_rate_ci_high": {
+      "value": 7.36,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:213",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::endpoint_pool_size": {
+      "value": 34658,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:214",
+      "must_print": false
+    },
+    "s1_solubility_aqsoldb::n_leaked_endpoint_pool": {
+      "value": 124,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:215",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_nested": {
+      "value": 0.3194,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:216",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_nested_ci_low": {
+      "value": 0.2167,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:217",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_nested_ci_high": {
+      "value": 0.4182,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:218",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_nested": {
+      "value": 0.1393,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:219",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_nested_ci_low": {
+      "value": 0.0651,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:220",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_nested_ci_high": {
+      "value": 0.2117,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:221",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_nested": {
+      "value": 0.1793,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:222",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_nested_ci_low": {
+      "value": 0.1107,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:223",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_nested_ci_high": {
+      "value": 0.2533,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:224",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_nested": {
+      "value": 0.2863,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:225",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_nested_ci_low": {
+      "value": 0.1863,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:226",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_nested_ci_high": {
+      "value": 0.3854,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:227",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_nested": {
+      "value": 0.1325,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:228",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_nested_ci_low": {
+      "value": 0.0576,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:229",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_nested_ci_high": {
+      "value": 0.2076,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:230",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_nested": {
+      "value": 0.1522,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:231",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_nested_ci_low": {
+      "value": 0.0864,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:232",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_nested_ci_high": {
+      "value": 0.2211,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:233",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_nested": {
+      "value": 0.1085,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:234",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_nested_ci_low": {
+      "value": 0.0164,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:235",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_nested_ci_high": {
+      "value": 0.2024,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:236",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_nested": {
+      "value": -0.1424,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:237",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_nested_ci_low": {
+      "value": -0.2405,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:238",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_nested_ci_high": {
+      "value": -0.0396,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:239",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_nested": {
+      "value": 0.0711,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:240",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_nested_ci_low": {
+      "value": -0.0049,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:241",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_nested_ci_high": {
+      "value": 0.1428,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:242",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_knn_tanimoto::paired_difference": {
+      "value": 0.1778,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:243",
+      "must_print": true
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_knn_tanimoto::paired_difference_ci_low": {
+      "value": 0.0669,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:244",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_knn_tanimoto::paired_difference_ci_high": {
+      "value": 0.2965,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:245",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_linear_ecfp::paired_difference": {
+      "value": 0.2749,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:246",
+      "must_print": true
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_linear_ecfp::paired_difference_ci_low": {
+      "value": 0.1639,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:247",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_linear_ecfp::paired_difference_ci_high": {
+      "value": 0.3935,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:248",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_random_forest::paired_difference": {
+      "value": 0.0811,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:249",
+      "must_print": true
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_random_forest::paired_difference_ci_low": {
+      "value": 0.0104,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:250",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_a2_minus_b_random_forest::paired_difference_ci_high": {
+      "value": 0.1567,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:251",
+      "must_print": false
+    },
+    "s2_cluster_readout::n_universe_near_duplicates": {
+      "value": 16,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:252",
+      "must_print": true
+    },
+    "s2_cluster_readout::n_universe_compounds": {
+      "value": 27230,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:253",
+      "must_print": false
+    },
+    "s2_cluster_readout::llm_selection_weighted_repro": {
+      "value": 0.0006,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:254",
+      "must_print": true
+    },
+    "s2_cluster_readout::universe_mean_repro": {
+      "value": 0.0006,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:255",
+      "must_print": true
+    },
+    "s2_cluster_readout::spearman_repro_vs_bench_mae": {
+      "value": -0.3201,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:256",
+      "must_print": true
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_mw_only": {
+      "value": 0.6101,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:257",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_knn_tanimoto::matched_gap_label_only": {
+      "value": 0.327,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:258",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_mw_only": {
+      "value": 0.3722,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:259",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_linear_ecfp::matched_gap_label_only": {
+      "value": 0.1304,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:260",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_mw_only": {
+      "value": 0.4289,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:261",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A1_chembl_naive_random_forest::matched_gap_label_only": {
+      "value": 0.1664,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:262",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_mw_only": {
+      "value": 0.5807,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:263",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_knn_tanimoto::matched_gap_label_only": {
+      "value": 0.2968,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:264",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_mw_only": {
+      "value": 0.3676,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:265",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_linear_ecfp::matched_gap_label_only": {
+      "value": 0.1223,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:266",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_mw_only": {
+      "value": 0.4079,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:267",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_A2_chembl_dedup_random_forest::matched_gap_label_only": {
+      "value": 0.144,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:268",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_mw_only": {
+      "value": 0.2132,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:269",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_knn_tanimoto::matched_gap_label_only": {
+      "value": 0.1013,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:270",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_mw_only": {
+      "value": -0.1096,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:271",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_linear_ecfp::matched_gap_label_only": {
+      "value": -0.1235,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:272",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_mw_only": {
+      "value": 0.2169,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:273",
+      "must_print": false
+    },
+    "r3_solubility_aqsoldb_B_tdc_trainval_random_forest::matched_gap_label_only": {
+      "value": 0.0661,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:274",
+      "must_print": false
+    },
+    "c6_drugbank::corpus_size": {
+      "value": 12293,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:275",
+      "must_print": true
+    },
+    "c6_bbb_martins::drugbank_rate_0p9": {
+      "value": 51.97,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:276",
+      "must_print": false
+    },
+    "c6_bbb_martins::union_rate_0p9": {
+      "value": 94.58,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:277",
+      "must_print": true
+    },
+    "c6_bbb_martins::clean_subset_union": {
+      "value": 22,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:278",
+      "must_print": false
+    },
+    "c6_bbb_martins::clean_lost_to_second_corpus": {
+      "value": 3,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:279",
+      "must_print": false
+    },
+    "c6_lipophilicity_astrazeneca::drugbank_rate_0p9": {
+      "value": 12.14,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:280",
+      "must_print": false
+    },
+    "c6_lipophilicity_astrazeneca::union_rate_0p9": {
+      "value": 99.76,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:281",
+      "must_print": true
+    },
+    "c6_lipophilicity_astrazeneca::clean_subset_union": {
+      "value": 2,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:282",
+      "must_print": false
+    },
+    "c6_lipophilicity_astrazeneca::clean_lost_to_second_corpus": {
+      "value": 2,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:283",
+      "must_print": false
+    },
+    "c6_solubility_aqsoldb::drugbank_rate_0p9": {
+      "value": 15.39,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:284",
+      "must_print": false
+    },
+    "c6_solubility_aqsoldb::union_rate_0p9": {
+      "value": 51.23,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:285",
+      "must_print": true
+    },
+    "c6_solubility_aqsoldb::clean_subset_union": {
+      "value": 973,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:286",
+      "must_print": false
+    },
+    "c6_solubility_aqsoldb::clean_lost_to_second_corpus": {
+      "value": 9,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:287",
+      "must_print": false
+    },
+    "c7_qwen2_5-coder_14b::gain_full": {
+      "value": -0.0131,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:288",
+      "must_print": false
+    },
+    "c7_qwen2_5-coder_14b::gain_nonleaked": {
+      "value": -0.0308,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:289",
+      "must_print": false
+    },
+    "c7_qwen2_5-coder_14b::gain_holdout": {
+      "value": -0.0627,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:290",
+      "must_print": false
+    },
+    "c7_qwen3_8b::gain_full": {
+      "value": 0.0125,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:291",
+      "must_print": false
+    },
+    "c7_qwen3_8b::gain_nonleaked": {
+      "value": 0.003,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:292",
+      "must_print": false
+    },
+    "c7_qwen3_8b::gain_holdout": {
+      "value": -0.0193,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:293",
+      "must_print": false
+    },
+    "c7_paired::gain_scaffold_holdout": {
+      "value": 0.0067,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:294",
+      "must_print": true
+    },
+    "c7_paired::gain_scaffold_holdout_ci_low": {
+      "value": -0.0132,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:295",
+      "must_print": false
+    },
+    "c7_paired::gain_scaffold_holdout_ci_high": {
+      "value": 0.0297,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:296",
+      "must_print": false
+    },
+    "c7_paired::gain_full_test": {
+      "value": 0.002,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:297",
+      "must_print": false
+    },
+    "c7_paired::gain_full_test_ci_low": {
+      "value": -0.0098,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:298",
+      "must_print": false
+    },
+    "c7_paired::gain_full_test_ci_high": {
+      "value": 0.0144,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:299",
+      "must_print": false
+    },
+    "c7_paired::gain_nonleaked_test": {
+      "value": -0.0059,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:300",
+      "must_print": false
+    },
+    "c7_paired::gain_nonleaked_test_ci_low": {
+      "value": -0.0268,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:301",
+      "must_print": false
+    },
+    "c7_paired::gain_nonleaked_test_ci_high": {
+      "value": 0.023,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:302",
+      "must_print": false
+    },
+    "c7_paired::overstatement": {
+      "value": 0.008,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:303",
+      "must_print": false
+    },
+    "c7_paired::overstatement_ci_low": {
+      "value": -0.0123,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:304",
+      "must_print": false
+    },
+    "c7_paired::overstatement_ci_high": {
+      "value": 0.0243,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:305",
+      "must_print": false
+    },
+    "c7_selection::jaccard": {
+      "value": 0.2494,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:306",
+      "must_print": true
+    },
+    "c7_selection::jaccard_ci_low": {
+      "value": 0.1593,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:307",
+      "must_print": false
+    },
+    "c7_selection::jaccard_ci_high": {
+      "value": 0.346,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:308",
+      "must_print": false
+    },
+    "c7::n_fallbacks": {
+      "value": 0,
+      "source": "agenticls-rsi-leakage_ledger.jsonl:309",
+      "must_print": false
+    }
+  }
+}

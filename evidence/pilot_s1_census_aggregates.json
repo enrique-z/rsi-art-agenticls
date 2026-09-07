@@ -1,0 +1,338 @@
+{
+  "generated_utc": "2026-09-06T23:16:54Z",
+  "pilot": true,
+  "chembl_corpus": {
+    "n_fingerprints": 100000,
+    "build": {
+      "db_path": "<DATA_ROOT>/chembl/chembl_36/chembl_36_sqlite/chembl_36.db",
+      "table": "compound_structures",
+      "n_rows_table": 2854815,
+      "n_rows_smiles_nonnull": 2854815,
+      "limit": 100000,
+      "n_read": 100000,
+      "n_fingerprinted": 100000,
+      "n_rdkit_parse_failures": 0,
+      "fp_radius": 2,
+      "fp_bits": 2048,
+      "fp_generator": "rdkit.Chem.rdFingerprintGenerator.GetMorganGenerator",
+      "elapsed_s": 88.0
+    }
+  },
+  "nn_seconds": 19.8,
+  "exactness_audit": {
+    "audited_queries": 86,
+    "audit_fraction": 0.04988399071925754,
+    "corpus_size": 100000,
+    "max_abs_deviation_vs_popcount": 0.0,
+    "max_abs_deviation_vs_rdkit": 0.0,
+    "argmax_mismatch_nontie": 0,
+    "reference_implementations": [
+      "numpy.bitwise_count uint64 popcount (full corpus)",
+      "rdkit.DataStructs.TanimotoSimilarity (reported NN pair)"
+    ],
+    "seed": 20260907,
+    "scope": "full corpus used in this run"
+  },
+  "benchmarks": {
+    "bbb_martins": {
+      "display": "BBB-Martins",
+      "task": "classification",
+      "n_test": 100,
+      "n_train_val": 1624,
+      "test_parse_failures": 0,
+      "train_val_parse_failures": 0,
+      "test_vs_chembl": {
+        "n": 100,
+        "ge_0p7": {
+          "k": 39,
+          "rate": 0.39,
+          "ci_low": 0.3001687400639441,
+          "ci_high": 0.4879698295415926
+        },
+        "ge_0p8": {
+          "k": 35,
+          "rate": 0.35,
+          "ci_low": 0.26364248243097527,
+          "ci_high": 0.44745556703112027
+        },
+        "ge_0p9": {
+          "k": 35,
+          "rate": 0.35,
+          "ci_low": 0.26364248243097527,
+          "ci_high": 0.44745556703112027
+        },
+        "ge_0p95": {
+          "k": 34,
+          "rate": 0.34,
+          "ci_low": 0.25461520797348164,
+          "ci_high": 0.43722271145275377
+        },
+        "ge_0p99": {
+          "k": 34,
+          "rate": 0.34,
+          "ci_low": 0.25461520797348164,
+          "ci_high": 0.43722271145275377
+        },
+        "ge_1p0": {
+          "k": 34,
+          "rate": 0.34,
+          "ci_low": 0.25461520797348164,
+          "ci_high": 0.43722271145275377
+        },
+        "mean": 0.6458929968297333,
+        "median": 0.5877976190476191,
+        "quantiles": {
+          "0.05": 0.24972222222222223,
+          "0.25": 0.4,
+          "0.5": 0.5877976190476191,
+          "0.75": 1.0,
+          "0.95": 1.0
+        },
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "histogram_counts": [
+          0,
+          0,
+          1,
+          0,
+          4,
+          7,
+          5,
+          7,
+          9,
+          2,
+          13,
+          2,
+          5,
+          6,
+          3,
+          1,
+          0,
+          0,
+          1,
+          34
+        ]
+      },
+      "test_vs_own_trainval": {
+        "n": 100,
+        "ge_0p7": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "ge_0p8": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "ge_0p9": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "ge_0p95": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "ge_0p99": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "ge_1p0": {
+          "k": 0,
+          "rate": 0.0,
+          "ci_low": 3.469446951953614e-18,
+          "ci_high": 0.03699349820698568
+        },
+        "mean": 0.29831768654416835,
+        "median": 0.2582010582010582,
+        "quantiles": {
+          "0.05": 0.1298654244306418,
+          "0.25": 0.18181818181818182,
+          "0.5": 0.2582010582010582,
+          "0.75": 0.38451492537313436,
+          "0.95": 0.6049583333333333
+        },
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "histogram_counts": [
+          1,
+          3,
+          10,
+          15,
+          14,
+          15,
+          13,
+          8,
+          5,
+          2,
+          4,
+          3,
+          6,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "trainval_vs_chembl": {
+        "n": 1624,
+        "ge_0p7": {
+          "k": 807,
+          "rate": 0.49692118226600984,
+          "ci_low": 0.4726397725372583,
+          "ci_high": 0.5212171230800553
+        },
+        "ge_0p8": {
+          "k": 623,
+          "rate": 0.38362068965517243,
+          "ci_low": 0.3602717083833041,
+          "ci_high": 0.40751894595115074
+        },
+        "ge_0p9": {
+          "k": 553,
+          "rate": 0.34051724137931033,
+          "ci_low": 0.31787009642698955,
+          "ci_high": 0.36391709654985577
+        },
+        "ge_0p95": {
+          "k": 538,
+          "rate": 0.3312807881773399,
+          "ci_low": 0.3088109548593613,
+          "ci_high": 0.35454692496942497
+        },
+        "ge_0p99": {
+          "k": 517,
+          "rate": 0.3183497536945813,
+          "ci_low": 0.2961448538404313,
+          "ci_high": 0.34141198758107216
+        },
+        "ge_1p0": {
+          "k": 517,
+          "rate": 0.3183497536945813,
+          "ci_low": 0.2961448538404313,
+          "ci_high": 0.34141198758107216
+        },
+        "mean": 0.7185665823159798,
+        "median": 0.696969696969697,
+        "quantiles": {
+          "0.05": 0.36251646903820817,
+          "0.25": 0.5214413341274569,
+          "0.5": 0.696969696969697,
+          "0.75": 1.0,
+          "0.95": 1.0
+        },
+        "histogram_edges": [
+          0.0,
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25,
+          0.3,
+          0.35,
+          0.4,
+          0.45,
+          0.5,
+          0.55,
+          0.6,
+          0.65,
+          0.7,
+          0.75,
+          0.8,
+          0.85,
+          0.9,
+          0.95,
+          1.0
+        ],
+        "histogram_counts": [
+          0,
+          0,
+          0,
+          2,
+          6,
+          18,
+          39,
+          81,
+          89,
+          104,
+          141,
+          113,
+          129,
+          95,
+          106,
+          78,
+          51,
+          19,
+          15,
+          538
+        ]
+      },
+      "exact_smiles_duplicate": {
+        "k": 31,
+        "rate": 0.31,
+        "ci_low": 0.22779697212376038,
+        "ci_high": 0.40626055719489407,
+        "definition": "identical RDKit canonical SMILES present in ChEMBL 36 compound_structures"
+      },
+      "scaffold_clustering": {
+        "n_distinct_test_scaffolds": 19,
+        "n_distinct_scaffolds_with_leak_ge_0p9": 7,
+        "scaffold_level_leak_rate": 0.3684210526315789,
+        "largest_scaffold_share_of_test": 0.69
+      }
+    }
+  }
+}

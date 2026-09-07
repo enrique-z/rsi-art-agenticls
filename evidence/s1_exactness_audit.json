@@ -1,0 +1,14 @@
+{
+  "audited_queries": 810,
+  "audit_fraction": 0.0499691548426897,
+  "corpus_size": 2854800,
+  "max_abs_deviation_vs_popcount": 0.0,
+  "max_abs_deviation_vs_rdkit": 0.0,
+  "argmax_mismatch_nontie": 0,
+  "reference_implementations": [
+    "numpy.bitwise_count uint64 popcount (full corpus)",
+    "rdkit.DataStructs.TanimotoSimilarity (reported NN pair)"
+  ],
+  "seed": 20260907,
+  "scope": "full ChEMBL corpus, 5% random subsample of queries"
+}

@@ -1,0 +1,3571 @@
+{
+  "generated_utc": "2026-09-07T01:46:43Z",
+  "pilot": false,
+  "chembl_endpoints": {
+    "db_path": "<DATA_ROOT>/chembl/chembl_36/chembl_36_sqlite/chembl_36.db",
+    "generated_utc": "2026-09-06T23:19:54Z",
+    "lipophilicity": {
+      "sql": "SELECT act.molregno, act.standard_value, cs.canonical_smiles FROM activities act JOIN assays a ON act.assay_id = a.assay_id JOIN compound_structures cs ON cs.molregno = act.molregno WHERE act.standard_type = 'LogD' AND act.standard_relation = '=' AND act.standard_value IS NOT NULL AND act.standard_value BETWEEN -5 AND 10 AND a.description LIKE '%7.4%' AND cs.canonical_smiles IS NOT NULL",
+      "n_activity_rows": 19007,
+      "n_compounds": 17895,
+      "aggregation": "median of standard_value per molregno",
+      "units": "log D at pH 7.4 (dimensionless)"
+    },
+    "solubility": {
+      "sql": "SELECT act.molregno, act.standard_value, act.standard_units, cp.full_mwt, cs.canonical_smiles FROM activities act JOIN compound_structures cs ON cs.molregno = act.molregno JOIN compound_properties cp ON cp.molregno = act.molregno WHERE act.standard_type = 'Solubility' AND act.standard_relation = '=' AND act.standard_value IS NOT NULL AND act.standard_value > 0 AND act.standard_units IN ('nM', 'ug.mL-1') AND cp.full_mwt IS NOT NULL AND cp.full_mwt > 0 AND cs.canonical_smiles IS NOT NULL",
+      "n_activity_rows_raw": 42819,
+      "n_dropped_out_of_range": 9,
+      "n_compounds": 34658,
+      "aggregation": "median of log10(mol/L) per molregno",
+      "unit_conversion": "nM -> mol/L = v*1e-9 ; ug.mL-1 -> mol/L = (v*1e-3)/full_mwt",
+      "range_filter": "log10(mol/L) in [-12, 2]",
+      "units": "log S (mol/L)"
+    },
+    "bbb_martins": {
+      "available": false,
+      "n_candidate_activity_rows": 202,
+      "reason": "ChEMBL 36 carries only a few hundred blood-brain-barrier distribution activity rows across incompatible standard_types; no ChEMBL-derived BBB training pool of usable size exists. S1b arm A is therefore NOT RUN for BBB-Martins; arm B (train on the benchmark's own train_val split) still runs."
+    }
+  },
+  "benchmarks": {
+    "bbb_martins": {
+      "benchmark": "bbb_martins",
+      "display": "BBB-Martins",
+      "task": "classification",
+      "metric": "roc_auc",
+      "gap_definition": "AUC(leaked) - AUC(non-leaked)",
+      "leak_threshold": 0.9,
+      "n_test": 406,
+      "n_leaked": 381,
+      "n_nonleaked": 25,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "arms": {
+        "B_tdc_trainval": {
+          "description": "control: trained on the benchmark's own train_val split",
+          "n_train_pool": 1624,
+          "n_exact_test_duplicates_in_pool": 0,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 1461,
+                  "score_leaked": 0.8578509678631835,
+                  "score_nonleaked": 0.87,
+                  "score_all": 0.8687265478424014,
+                  "gap": -0.012149032136816507,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 1,
+                  "n_train": 1461,
+                  "score_leaked": 0.8534345047923321,
+                  "score_nonleaked": 0.9333333333333333,
+                  "score_all": 0.8650328330206379,
+                  "gap": -0.07989882854100128,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 2,
+                  "n_train": 1461,
+                  "score_leaked": 0.8478669423040781,
+                  "score_nonleaked": 0.9166666666666667,
+                  "score_all": 0.8601860537836147,
+                  "gap": -0.06879972436258863,
+                  "fit_seconds": 0.8
+                },
+                {
+                  "seed": 3,
+                  "n_train": 1461,
+                  "score_leaked": 0.839762262732569,
+                  "score_nonleaked": 0.8200000000000001,
+                  "score_all": 0.8444731081926204,
+                  "gap": 0.01976226273256898,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 4,
+                  "n_train": 1461,
+                  "score_leaked": 0.8412422476978011,
+                  "score_nonleaked": 0.9400000000000001,
+                  "score_all": 0.8531894934333958,
+                  "gap": -0.09875775230219896,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 5,
+                  "n_train": 1461,
+                  "score_leaked": 0.8672476978011652,
+                  "score_nonleaked": 0.9066666666666666,
+                  "score_all": 0.8758794559099435,
+                  "gap": -0.03941896886550145,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 6,
+                  "n_train": 1461,
+                  "score_leaked": 0.8562065401240367,
+                  "score_nonleaked": 0.94,
+                  "score_all": 0.8671239837398373,
+                  "gap": -0.0837934598759632,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 7,
+                  "n_train": 1461,
+                  "score_leaked": 0.8569817703439203,
+                  "score_nonleaked": 0.9133333333333333,
+                  "score_all": 0.8681988742964352,
+                  "gap": -0.05635156298941302,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 8,
+                  "n_train": 1461,
+                  "score_leaked": 0.8572636722420598,
+                  "score_nonleaked": 0.9133333333333333,
+                  "score_all": 0.8691174171357099,
+                  "gap": -0.05606966109127354,
+                  "fit_seconds": 0.9
+                },
+                {
+                  "seed": 9,
+                  "n_train": 1461,
+                  "score_leaked": 0.8533640293177973,
+                  "score_nonleaked": 0.8766666666666667,
+                  "score_all": 0.8615345528455285,
+                  "gap": -0.023302637348869393,
+                  "fit_seconds": 1.0
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8531220635218943,
+              "mean_score_nonleaked": 0.9030000000000001,
+              "mean_score_all": 0.8633462320200126,
+              "mean_gap": -0.0498779364781057,
+              "sd_gap": 0.03646596058040521,
+              "gap_ci_seed_bootstrap": [
+                -0.07049097913925963,
+                -0.027000685178224758
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.14924922242591954,
+                0.13588394875538093
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.08655362457967954,
+                "spearman_p": 0.08152588916992166,
+                "n_molecules": 406,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 3,
+                    "mean_abs_error": 0.07002222222222221,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 13,
+                    "mean_abs_error": 0.31845833333333334,
+                    "auc": 0.9761904761904763
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 7,
+                    "mean_abs_error": 0.35461071428571433,
+                    "auc": 0.7500000000000001
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 0.5426541666666667,
+                    "auc": 0.0
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 4,
+                    "mean_abs_error": 0.059624999999999984,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 5,
+                    "mean_abs_error": 0.13815833333333333,
+                    "auc": 1.0
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 372,
+                    "mean_abs_error": 0.20015271804062126,
+                    "auc": 0.8495246583481877
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 1461,
+                  "score_leaked": 0.8577804923886487,
+                  "score_nonleaked": 0.8266666666666667,
+                  "score_all": 0.8604205753595998,
+                  "gap": 0.03111382572198207,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 1,
+                  "n_train": 1461,
+                  "score_leaked": 0.8525653072730688,
+                  "score_nonleaked": 0.8266666666666667,
+                  "score_all": 0.8540103189493434,
+                  "gap": 0.025898640606402124,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 2,
+                  "n_train": 1461,
+                  "score_leaked": 0.8639353504980266,
+                  "score_nonleaked": 0.8533333333333333,
+                  "score_all": 0.8658536585365854,
+                  "gap": 0.010602017164693334,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 3,
+                  "n_train": 1461,
+                  "score_leaked": 0.8508269122345424,
+                  "score_nonleaked": 0.7999999999999999,
+                  "score_all": 0.8524077548467793,
+                  "gap": 0.0508269122345425,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 1461,
+                  "score_leaked": 0.850498026686713,
+                  "score_nonleaked": 0.7466666666666667,
+                  "score_all": 0.8476782363977486,
+                  "gap": 0.10383136002004634,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 5,
+                  "n_train": 1461,
+                  "score_leaked": 0.8544916369103551,
+                  "score_nonleaked": 0.7866666666666666,
+                  "score_all": 0.8563164477798624,
+                  "gap": 0.0678249702436885,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 6,
+                  "n_train": 1461,
+                  "score_leaked": 0.8542567186619057,
+                  "score_nonleaked": 0.76,
+                  "score_all": 0.8514696685428391,
+                  "gap": 0.09425671866190566,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 7,
+                  "n_train": 1461,
+                  "score_leaked": 0.8484777297500469,
+                  "score_nonleaked": 0.8,
+                  "score_all": 0.8498280175109443,
+                  "gap": 0.04847772975004683,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 1461,
+                  "score_leaked": 0.8566998684457809,
+                  "score_nonleaked": 0.82,
+                  "score_all": 0.8591697936210131,
+                  "gap": 0.03669986844578099,
+                  "fit_seconds": 0.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 1461,
+                  "score_leaked": 0.848007893253148,
+                  "score_nonleaked": 0.7733333333333333,
+                  "score_all": 0.8495934959349593,
+                  "gap": 0.07467455991981464,
+                  "fit_seconds": 0.3
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8537539936102236,
+              "mean_score_nonleaked": 0.7993333333333335,
+              "mean_score_all": 0.8546747967479673,
+              "mean_gap": 0.0544206602768903,
+              "sd_gap": 0.030289844854527785,
+              "gap_ci_seed_bootstrap": [
+                0.0370705381194011,
+                0.07267853786882161
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.10656417594424633,
+                0.2519056675093319
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.0283422657950751,
+                "spearman_p": 0.5690613188163274,
+                "n_molecules": 406,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 3,
+                    "mean_abs_error": 0.05803125768522447,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 13,
+                    "mean_abs_error": 0.25497772123627405,
+                    "auc": 0.9523809523809524
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 7,
+                    "mean_abs_error": 0.4671512693937562,
+                    "auc": 0.7500000000000001
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 0.7337987332440353,
+                    "auc": 0.0
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 4,
+                    "mean_abs_error": 0.008903563249456292,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 5,
+                    "mean_abs_error": 0.0375935831464446,
+                    "auc": 1.0
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 372,
+                    "mean_abs_error": 0.20026109322958327,
+                    "auc": 0.8497227173697761
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 1461,
+                  "score_leaked": 0.8171396354068783,
+                  "score_nonleaked": 0.9066666666666666,
+                  "score_all": 0.8279197936210132,
+                  "gap": -0.08952703125978834,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 1,
+                  "n_train": 1461,
+                  "score_leaked": 0.8110082691223455,
+                  "score_nonleaked": 0.8533333333333333,
+                  "score_all": 0.8190275171982488,
+                  "gap": -0.042325064210987806,
+                  "fit_seconds": 0.3
+                },
+                {
+                  "seed": 2,
+                  "n_train": 1461,
+                  "score_leaked": 0.8225192632963729,
+                  "score_nonleaked": 0.9333333333333333,
+                  "score_all": 0.8343886804252658,
+                  "gap": -0.11081407003696042,
+                  "fit_seconds": 0.1
+                },
+                {
+                  "seed": 3,
+                  "n_train": 1461,
+                  "score_leaked": 0.8262309716218756,
+                  "score_nonleaked": 0.8366666666666667,
+                  "score_all": 0.8292682926829268,
+                  "gap": -0.010435695044791027,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 1461,
+                  "score_leaked": 0.8146729937981583,
+                  "score_nonleaked": 0.8933333333333334,
+                  "score_all": 0.8267667292057536,
+                  "gap": -0.07866033953517515,
+                  "fit_seconds": 0.1
+                },
+                {
+                  "seed": 5,
+                  "n_train": 1461,
+                  "score_leaked": 0.8154952076677316,
+                  "score_nonleaked": 0.9133333333333333,
+                  "score_all": 0.825848186366479,
+                  "gap": -0.09783812566560168,
+                  "fit_seconds": 0.1
+                },
+                {
+                  "seed": 6,
+                  "n_train": 1461,
+                  "score_leaked": 0.8197707197895132,
+                  "score_nonleaked": 0.9533333333333333,
+                  "score_all": 0.8315548780487805,
+                  "gap": -0.13356261354382004,
+                  "fit_seconds": 0.1
+                },
+                {
+                  "seed": 7,
+                  "n_train": 1461,
+                  "score_leaked": 0.8228246570193571,
+                  "score_nonleaked": 0.9400000000000002,
+                  "score_all": 0.8350922451532207,
+                  "gap": -0.11717534298064303,
+                  "fit_seconds": 0.1
+                },
+                {
+                  "seed": 8,
+                  "n_train": 1461,
+                  "score_leaked": 0.80102424356324,
+                  "score_nonleaked": 0.8933333333333333,
+                  "score_all": 0.8106433708567855,
+                  "gap": -0.09230908977009333,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 9,
+                  "n_train": 1461,
+                  "score_leaked": 0.8251268558541627,
+                  "score_nonleaked": 0.9199999999999999,
+                  "score_all": 0.8367534396497811,
+                  "gap": -0.09487314414583725,
+                  "fit_seconds": 0.3
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8175812817139635,
+              "mean_score_nonleaked": 0.9043333333333333,
+              "mean_score_all": 0.8277263133208255,
+              "mean_gap": -0.0867520516193698,
+              "sd_gap": 0.0361887639979836,
+              "gap_ci_seed_bootstrap": [
+                -0.10627598665664358,
+                -0.0643338431059325
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.19906697714776242,
+                0.108541828346858
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.02822372505630998,
+                "spearman_p": 0.5706789270962684,
+                "n_molecules": 406,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 3,
+                    "mean_abs_error": 0.06407156579807005,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 13,
+                    "mean_abs_error": 0.2785826296626551,
+                    "auc": 0.9285714285714286
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 7,
+                    "mean_abs_error": 0.31553968966064055,
+                    "auc": 0.6666666666666667
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 0.2772263314821451,
+                    "auc": 1.0
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 4,
+                    "mean_abs_error": 0.0,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 5,
+                    "mean_abs_error": 0.00728272316048959,
+                    "auc": 1.0
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 372,
+                    "mean_abs_error": 0.19637549063567783,
+                    "auc": 0.820137651020004
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "lipophilicity_astrazeneca": {
+      "benchmark": "lipophilicity_astrazeneca",
+      "display": "Lipophilicity-AZ",
+      "task": "regression",
+      "metric": "mae",
+      "gap_definition": "MAE(non-leaked) - MAE(leaked)",
+      "leak_threshold": 0.9,
+      "n_test": 840,
+      "n_leaked": 836,
+      "n_nonleaked": 4,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "arms": {
+        "A1_chembl_naive": {
+          "description": "ChEMBL-derived pool, exact TDC-test duplicates NOT removed",
+          "n_train_pool": 17895,
+          "n_exact_test_duplicates_in_pool": 147,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 16105,
+                  "score_leaked": 0.7265669617272348,
+                  "score_nonleaked": 1.1400054583333332,
+                  "score_all": 0.728535716472978,
+                  "gap": 0.41343849660609844,
+                  "fit_seconds": 11.7
+                },
+                {
+                  "seed": 1,
+                  "n_train": 16105,
+                  "score_leaked": 0.7293174753123338,
+                  "score_nonleaked": 1.1153258333333331,
+                  "score_all": 0.731155610350529,
+                  "gap": 0.3860083580209993,
+                  "fit_seconds": 12.2
+                },
+                {
+                  "seed": 2,
+                  "n_train": 16105,
+                  "score_leaked": 0.7195700401809447,
+                  "score_nonleaked": 1.1379305357142846,
+                  "score_all": 0.7215622330168178,
+                  "gap": 0.41836049553333987,
+                  "fit_seconds": 13.0
+                },
+                {
+                  "seed": 3,
+                  "n_train": 16105,
+                  "score_leaked": 0.7316627440614275,
+                  "score_nonleaked": 1.1395064583333328,
+                  "score_all": 0.7336048569865319,
+                  "gap": 0.40784371427190524,
+                  "fit_seconds": 12.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 16105,
+                  "score_leaked": 0.7275546669229891,
+                  "score_nonleaked": 1.115452916666667,
+                  "score_all": 0.7294018014455782,
+                  "gap": 0.3878982497436778,
+                  "fit_seconds": 11.3
+                },
+                {
+                  "seed": 5,
+                  "n_train": 16105,
+                  "score_leaked": 0.7161558764026542,
+                  "score_nonleaked": 1.0193617559523804,
+                  "score_all": 0.7175997139243195,
+                  "gap": 0.3032058795497262,
+                  "fit_seconds": 13.7
+                },
+                {
+                  "seed": 6,
+                  "n_train": 16105,
+                  "score_leaked": 0.7257467688824332,
+                  "score_nonleaked": 1.1338141666666675,
+                  "score_all": 0.7276899469671201,
+                  "gap": 0.4080673977842343,
+                  "fit_seconds": 13.2
+                },
+                {
+                  "seed": 7,
+                  "n_train": 16105,
+                  "score_leaked": 0.7189421762550313,
+                  "score_nonleaked": 1.1650345833333335,
+                  "score_all": 0.7210664258125471,
+                  "gap": 0.4460924070783022,
+                  "fit_seconds": 12.6
+                },
+                {
+                  "seed": 8,
+                  "n_train": 16105,
+                  "score_leaked": 0.718033571585213,
+                  "score_nonleaked": 1.1975344642857144,
+                  "score_all": 0.720316909169501,
+                  "gap": 0.47950089270050145,
+                  "fit_seconds": 13.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 16105,
+                  "score_leaked": 0.7232590181277054,
+                  "score_nonleaked": 1.1006695833333329,
+                  "score_all": 0.7250562112953514,
+                  "gap": 0.37741056520562744,
+                  "fit_seconds": 12.2
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.7236809299457967,
+              "mean_score_nonleaked": 1.126463575595238,
+              "mean_score_all": 0.7255989425441273,
+              "mean_gap": 0.4027826456494412,
+              "sd_gap": 0.046228155481266735,
+              "gap_ci_seed_bootstrap": [
+                0.375009761465443,
+                0.4287526471658087
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.43523023046113074,
+                1.4703111381792204
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.02024487268856486,
+                "spearman_p": 0.557916868299724,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.7961151928571433,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.456811958333333,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.7207110514920867,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 16105,
+                  "score_leaked": 0.8569692386394482,
+                  "score_nonleaked": 0.6546529030799866,
+                  "score_all": 0.8560058275177366,
+                  "gap": -0.2023163355594616,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 1,
+                  "n_train": 16105,
+                  "score_leaked": 0.8533736510239719,
+                  "score_nonleaked": 0.6937266683578491,
+                  "score_all": 0.8526134272969903,
+                  "gap": -0.15964698266612276,
+                  "fit_seconds": 1.9
+                },
+                {
+                  "seed": 2,
+                  "n_train": 16105,
+                  "score_leaked": 0.8687747729651666,
+                  "score_nonleaked": 0.7533721125125885,
+                  "score_all": 0.8682252364868209,
+                  "gap": -0.11540266045257808,
+                  "fit_seconds": 1.6
+                },
+                {
+                  "seed": 3,
+                  "n_train": 16105,
+                  "score_leaked": 0.8487497270763206,
+                  "score_nonleaked": 0.5078982508182526,
+                  "score_all": 0.8471266248084249,
+                  "gap": -0.340851476258068,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 4,
+                  "n_train": 16105,
+                  "score_leaked": 0.8658969890586498,
+                  "score_nonleaked": 0.7692092156410217,
+                  "score_all": 0.8654365710899943,
+                  "gap": -0.09668777341762802,
+                  "fit_seconds": 1.9
+                },
+                {
+                  "seed": 5,
+                  "n_train": 16105,
+                  "score_leaked": 0.8557468655348965,
+                  "score_nonleaked": 0.5144590830802918,
+                  "score_all": 0.8541216856184459,
+                  "gap": -0.3412877824546048,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 6,
+                  "n_train": 16105,
+                  "score_leaked": 0.8453111540672311,
+                  "score_nonleaked": 0.686924467086792,
+                  "score_all": 0.8445569317482766,
+                  "gap": -0.15838668698043912,
+                  "fit_seconds": 2.0
+                },
+                {
+                  "seed": 7,
+                  "n_train": 16105,
+                  "score_leaked": 0.8539879944507015,
+                  "score_nonleaked": 0.7092559134960175,
+                  "score_all": 0.853298794065203,
+                  "gap": -0.14473208095468404,
+                  "fit_seconds": 1.8
+                },
+                {
+                  "seed": 8,
+                  "n_train": 16105,
+                  "score_leaked": 0.8627283756670199,
+                  "score_nonleaked": 0.6506988751888276,
+                  "score_all": 0.8617187113790284,
+                  "gap": -0.21202950047819225,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 9,
+                  "n_train": 16105,
+                  "score_leaked": 0.849625992563923,
+                  "score_nonleaked": 0.7661682462692261,
+                  "score_all": 0.8492285747244244,
+                  "gap": -0.08345774629469693,
+                  "fit_seconds": 1.9
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8561164761047328,
+              "mean_score_nonleaked": 0.6706365735530853,
+              "mean_score_all": 0.8552332384735346,
+              "mean_gap": -0.18547990255164754,
+              "sd_gap": 0.09169388532305091,
+              "gap_ci_seed_bootstrap": [
+                -0.24522351075191595,
+                -0.1363637996535445
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.5564698699863371,
+                0.1697612792290388
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": 0.010913558775826336,
+                "spearman_p": 0.7521213934016956,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.8057290065288545,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 0.5330661857128143,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.8482492590157323,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 16105,
+                  "score_leaked": 0.9019029891114598,
+                  "score_nonleaked": 0.9248465425449468,
+                  "score_all": 0.9020122441278097,
+                  "gap": 0.022943553433486974,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 1,
+                  "n_train": 16105,
+                  "score_leaked": 0.920180602007962,
+                  "score_nonleaked": 1.1216352318848841,
+                  "score_all": 0.9211399097692806,
+                  "gap": 0.2014546298769221,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 2,
+                  "n_train": 16105,
+                  "score_leaked": 0.8948998137767099,
+                  "score_nonleaked": 0.8941346639271041,
+                  "score_all": 0.8948961702059974,
+                  "gap": -0.0007651498496058506,
+                  "fit_seconds": 1.3
+                },
+                {
+                  "seed": 3,
+                  "n_train": 16105,
+                  "score_leaked": 0.9137102123155675,
+                  "score_nonleaked": 0.9346042280190863,
+                  "score_all": 0.9138097076284415,
+                  "gap": 0.020894015703518787,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 4,
+                  "n_train": 16105,
+                  "score_leaked": 0.9116854718957335,
+                  "score_nonleaked": 0.924846542544947,
+                  "score_all": 0.9117481436607295,
+                  "gap": 0.013161070649213569,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 5,
+                  "n_train": 16105,
+                  "score_leaked": 0.9051087007694903,
+                  "score_nonleaked": 0.7980486560904916,
+                  "score_all": 0.904598891032924,
+                  "gap": -0.10706004467899877,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 6,
+                  "n_train": 16105,
+                  "score_leaked": 0.9185533483725552,
+                  "score_nonleaked": 0.7717631624151662,
+                  "score_all": 0.9178543474870439,
+                  "gap": -0.14679018595738902,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 7,
+                  "n_train": 16105,
+                  "score_leaked": 0.9136961576642487,
+                  "score_nonleaked": 0.9303184299951317,
+                  "score_all": 0.9137753113420147,
+                  "gap": 0.01662227233088298,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 16105,
+                  "score_leaked": 0.9175027691921904,
+                  "score_nonleaked": 0.8941346639271041,
+                  "score_all": 0.9173914925004519,
+                  "gap": -0.02336810526508637,
+                  "fit_seconds": 1.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 16105,
+                  "score_leaked": 0.9055606341026019,
+                  "score_nonleaked": 0.8941346639271043,
+                  "score_all": 0.9055062247208138,
+                  "gap": -0.011425970175497624,
+                  "fit_seconds": 1.2
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.9102800699208519,
+              "mean_score_nonleaked": 0.9088466785275967,
+              "mean_score_all": 0.9102732442475506,
+              "mean_gap": -0.0014333913932553233,
+              "sd_gap": 0.09168928235982218,
+              "gap_ci_seed_bootstrap": [
+                -0.053308562139235675,
+                0.05414967349233695
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.6749557597939574,
+                0.7339214915707928
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": false,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": 0.005027152831618921,
+                "spearman_p": 0.884328206382472,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.7276165008399489,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.0162263180447713,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.8994121615313131,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "A2_chembl_dedup": {
+          "description": "ChEMBL-derived pool with exact TDC-test canonical-SMILES duplicates removed (PRIMARY)",
+          "n_train_pool": 17748,
+          "n_exact_test_duplicates_in_pool": 147,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 15973,
+                  "score_leaked": 0.7884005187400318,
+                  "score_nonleaked": 1.1563145833333328,
+                  "score_all": 0.7901524904761905,
+                  "gap": 0.367914064593301,
+                  "fit_seconds": 10.7
+                },
+                {
+                  "seed": 1,
+                  "n_train": 15973,
+                  "score_leaked": 0.7814795319643807,
+                  "score_nonleaked": 1.066223333333334,
+                  "score_all": 0.7828354548280423,
+                  "gap": 0.2847438013689533,
+                  "fit_seconds": 11.1
+                },
+                {
+                  "seed": 2,
+                  "n_train": 15973,
+                  "score_leaked": 0.7835169040356572,
+                  "score_nonleaked": 1.2107629166666665,
+                  "score_all": 0.7855514088577097,
+                  "gap": 0.42724601263100925,
+                  "fit_seconds": 11.3
+                },
+                {
+                  "seed": 3,
+                  "n_train": 15973,
+                  "score_leaked": 0.7830099072871572,
+                  "score_nonleaked": 1.1405779166666663,
+                  "score_all": 0.7847126120937263,
+                  "gap": 0.35756800937950906,
+                  "fit_seconds": 10.4
+                },
+                {
+                  "seed": 4,
+                  "n_train": 15973,
+                  "score_leaked": 0.7869154352548037,
+                  "score_nonleaked": 1.1585216666666673,
+                  "score_all": 0.7886849887377172,
+                  "gap": 0.37160623141186366,
+                  "fit_seconds": 10.3
+                },
+                {
+                  "seed": 5,
+                  "n_train": 15973,
+                  "score_leaked": 0.7917291208039036,
+                  "score_nonleaked": 1.1550239583333335,
+                  "score_all": 0.7934590962207104,
+                  "gap": 0.3632948375294299,
+                  "fit_seconds": 10.4
+                },
+                {
+                  "seed": 6,
+                  "n_train": 15973,
+                  "score_leaked": 0.7876538388442698,
+                  "score_nonleaked": 1.089427708333334,
+                  "score_all": 0.7890908572704082,
+                  "gap": 0.30177386948906415,
+                  "fit_seconds": 10.7
+                },
+                {
+                  "seed": 7,
+                  "n_train": 15973,
+                  "score_leaked": 0.7814550738114225,
+                  "score_nonleaked": 1.2648285416666671,
+                  "score_all": 0.7837568522297808,
+                  "gap": 0.4833734678552446,
+                  "fit_seconds": 11.5
+                },
+                {
+                  "seed": 8,
+                  "n_train": 15973,
+                  "score_leaked": 0.7831473893350802,
+                  "score_nonleaked": 1.1896624999999994,
+                  "score_all": 0.7850831755763417,
+                  "gap": 0.4065151106649192,
+                  "fit_seconds": 9.4
+                },
+                {
+                  "seed": 9,
+                  "n_train": 15973,
+                  "score_leaked": 0.7908830299612668,
+                  "score_nonleaked": 1.0763659821428564,
+                  "score_all": 0.792242472590703,
+                  "gap": 0.2854829521815896,
+                  "fit_seconds": 10.0
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.7858190750037973,
+              "mean_score_nonleaked": 1.1507709107142856,
+              "mean_score_all": 0.787556940888133,
+              "mean_gap": 0.36495183571048834,
+              "sd_gap": 0.06366768168254724,
+              "gap_ci_seed_bootstrap": [
+                0.3285264176241737,
+                0.4036609389693215
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.49013918552037034,
+                1.4245427207680663
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.014166087774579205,
+                "spearman_p": 0.6818195827630807,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.8195064047619053,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.4820354166666663,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.7830149741152123,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 15973,
+                  "score_leaked": 0.8940386554869739,
+                  "score_nonleaked": 0.7072891390323639,
+                  "score_all": 0.8931493720752853,
+                  "gap": -0.18674951645461002,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 1,
+                  "n_train": 15973,
+                  "score_leaked": 0.8974746339315433,
+                  "score_nonleaked": 0.6048716998100281,
+                  "score_all": 0.8960812866262028,
+                  "gap": -0.29260293412151517,
+                  "fit_seconds": 1.8
+                },
+                {
+                  "seed": 2,
+                  "n_train": 15973,
+                  "score_leaked": 0.8832386004839217,
+                  "score_nonleaked": 0.5438814854621887,
+                  "score_all": 0.8816226142219135,
+                  "gap": -0.33935711502173294,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 3,
+                  "n_train": 15973,
+                  "score_leaked": 0.8801579443475848,
+                  "score_nonleaked": 0.6298492300510408,
+                  "score_all": 0.8789659980890298,
+                  "gap": -0.250308714296544,
+                  "fit_seconds": 2.4
+                },
+                {
+                  "seed": 4,
+                  "n_train": 15973,
+                  "score_leaked": 0.8789694705705323,
+                  "score_nonleaked": 0.6551979279518128,
+                  "score_all": 0.8779038917961575,
+                  "gap": -0.22377154261871957,
+                  "fit_seconds": 2.2
+                },
+                {
+                  "seed": 5,
+                  "n_train": 15973,
+                  "score_leaked": 0.8891815212725452,
+                  "score_nonleaked": 0.7527566599845887,
+                  "score_all": 0.8885318790759359,
+                  "gap": -0.1364248612879565,
+                  "fit_seconds": 2.2
+                },
+                {
+                  "seed": 6,
+                  "n_train": 15973,
+                  "score_leaked": 0.8761186559291547,
+                  "score_nonleaked": 0.779488513469696,
+                  "score_all": 0.8756585123936333,
+                  "gap": -0.09663014245945867,
+                  "fit_seconds": 2.1
+                },
+                {
+                  "seed": 7,
+                  "n_train": 15973,
+                  "score_leaked": 0.8652964677964672,
+                  "score_nonleaked": 0.736260657310486,
+                  "score_all": 0.8646820115560577,
+                  "gap": -0.12903581048598123,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 8,
+                  "n_train": 15973,
+                  "score_leaked": 0.8943536665451014,
+                  "score_nonleaked": 0.7640105283260346,
+                  "score_all": 0.8937329849345345,
+                  "gap": -0.13034313821906685,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 9,
+                  "n_train": 15973,
+                  "score_leaked": 0.8825205665541609,
+                  "score_nonleaked": 0.6953296411037446,
+                  "score_all": 0.881629181194873,
+                  "gap": -0.18719092545041627,
+                  "fit_seconds": 1.6
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8841350182917985,
+              "mean_score_nonleaked": 0.6868935482501983,
+              "mean_score_all": 0.8831957731963623,
+              "mean_gap": -0.19724147004160011,
+              "sd_gap": 0.07886023854768891,
+              "gap_ci_seed_bootstrap": [
+                -0.24554923515105215,
+                -0.1528445481548683
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.6292215362652849,
+                0.19140052398524132
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": 0.016276313578995727,
+                "spearman_p": 0.6375970859219945,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.780756311416626,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 0.5485005164146423,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.8745371998732454,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 15973,
+                  "score_leaked": 0.9452532780544083,
+                  "score_nonleaked": 1.2039708856952756,
+                  "score_all": 0.9464852666622221,
+                  "gap": 0.25871760764086726,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 1,
+                  "n_train": 15973,
+                  "score_leaked": 0.9396090668211181,
+                  "score_nonleaked": 0.9018184294486873,
+                  "score_all": 0.939429111405059,
+                  "gap": -0.037790637372430824,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 2,
+                  "n_train": 15973,
+                  "score_leaked": 0.9622284642967746,
+                  "score_nonleaked": 1.1275037954415073,
+                  "score_all": 0.9630154896831782,
+                  "gap": 0.1652753311447327,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 3,
+                  "n_train": 15973,
+                  "score_leaked": 0.952790090863147,
+                  "score_nonleaked": 0.9585761470125842,
+                  "score_all": 0.9528176435114777,
+                  "gap": 0.005786056149437169,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 4,
+                  "n_train": 15973,
+                  "score_leaked": 0.9513856898518611,
+                  "score_nonleaked": 1.201471577611819,
+                  "score_all": 0.9525765750316704,
+                  "gap": 0.2500858877599579,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 5,
+                  "n_train": 15973,
+                  "score_leaked": 0.9409841817116181,
+                  "score_nonleaked": 1.0261284821699919,
+                  "score_all": 0.9413896307614198,
+                  "gap": 0.08514430045837373,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 6,
+                  "n_train": 15973,
+                  "score_leaked": 0.95073222923928,
+                  "score_nonleaked": 0.993878388372351,
+                  "score_all": 0.9509376871399138,
+                  "gap": 0.04314615913307096,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 7,
+                  "n_train": 15973,
+                  "score_leaked": 0.9528065466218624,
+                  "score_nonleaked": 0.8387801488798656,
+                  "score_all": 0.952263563775472,
+                  "gap": -0.11402639774199674,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 8,
+                  "n_train": 15973,
+                  "score_leaked": 0.9624533597815447,
+                  "score_nonleaked": 0.9719590069494586,
+                  "score_all": 0.9624986247680585,
+                  "gap": 0.009505647167913911,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 9,
+                  "n_train": 15973,
+                  "score_leaked": 0.9700058745169047,
+                  "score_nonleaked": 1.0849816937789198,
+                  "score_all": 0.9705533784181523,
+                  "gap": 0.11497581926201517,
+                  "fit_seconds": 1.3
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.9528248781758517,
+              "mean_score_nonleaked": 1.0309068555360459,
+              "mean_score_all": 0.9531966971156625,
+              "mean_gap": 0.07808197736019412,
+              "sd_gap": 0.12143141839127503,
+              "gap_ci_seed_bootstrap": [
+                0.008048453312276946,
+                0.14995304927545797
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.6384889913740889,
+                0.8120014925283564
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.005691904523306294,
+                "spearman_p": 0.8691622135650278,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.9443779623135784,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.0617770702454634,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.9413342813483702,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "B_tdc_trainval": {
+          "description": "control: trained on the benchmark's own train_val split",
+          "n_train_pool": 3360,
+          "n_exact_test_duplicates_in_pool": 0,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 3024,
+                  "score_leaked": 0.7635665076754388,
+                  "score_nonleaked": 1.411276041666667,
+                  "score_all": 0.7666508387896825,
+                  "gap": 0.6477095339912282,
+                  "fit_seconds": 1.4
+                },
+                {
+                  "seed": 1,
+                  "n_train": 3024,
+                  "score_leaked": 0.7594293059223473,
+                  "score_nonleaked": 1.5266224999999998,
+                  "score_all": 0.7630826068465265,
+                  "gap": 0.7671931940776525,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 2,
+                  "n_train": 3024,
+                  "score_leaked": 0.7616093515512264,
+                  "score_nonleaked": 1.4393625,
+                  "score_all": 0.7648367474962208,
+                  "gap": 0.6777531484487737,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 3,
+                  "n_train": 3024,
+                  "score_leaked": 0.7636307458039037,
+                  "score_nonleaked": 1.5293041666666674,
+                  "score_all": 0.7672768097127738,
+                  "gap": 0.7656734208627637,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 4,
+                  "n_train": 3024,
+                  "score_leaked": 0.7645215043613683,
+                  "score_nonleaked": 1.4412427083333341,
+                  "score_all": 0.7677439862850443,
+                  "gap": 0.6767212039719658,
+                  "fit_seconds": 1.6
+                },
+                {
+                  "seed": 5,
+                  "n_train": 3024,
+                  "score_leaked": 0.7623036352718919,
+                  "score_nonleaked": 1.4882541666666662,
+                  "score_all": 0.765760542564248,
+                  "gap": 0.7259505313947743,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 6,
+                  "n_train": 3024,
+                  "score_leaked": 0.7593655435463659,
+                  "score_nonleaked": 1.5245541666666673,
+                  "score_all": 0.7630092988945578,
+                  "gap": 0.7651886231203014,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 7,
+                  "n_train": 3024,
+                  "score_leaked": 0.759917131702362,
+                  "score_nonleaked": 1.4279350000000006,
+                  "score_all": 0.7630981691704459,
+                  "gap": 0.6680178682976387,
+                  "fit_seconds": 1.6
+                },
+                {
+                  "seed": 8,
+                  "n_train": 3024,
+                  "score_leaked": 0.7646582383278272,
+                  "score_nonleaked": 1.4884729166666664,
+                  "score_all": 0.7681049748913454,
+                  "gap": 0.7238146783388392,
+                  "fit_seconds": 1.7
+                },
+                {
+                  "seed": 9,
+                  "n_train": 3024,
+                  "score_leaked": 0.7538333048055744,
+                  "score_nonleaked": 1.4753000000000007,
+                  "score_all": 0.7572688604969765,
+                  "gap": 0.7214666951944263,
+                  "fit_seconds": 1.3
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.7612835268968305,
+              "mean_score_nonleaked": 1.4752324166666668,
+              "mean_score_all": 0.7646832835147821,
+              "mean_gap": 0.7139488897698364,
+              "sd_gap": 0.04425573055562382,
+              "gap_ci_seed_bootstrap": [
+                0.687932289760591,
+                0.7400496264967475
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.12161099431631464,
+                1.8381707424497185
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.0500406905320643,
+                "spearman_p": 0.14731937434896847,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 0.9967433750000002,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.953721458333334,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.7580552937286829,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 3024,
+                  "score_leaked": 0.8230354030152257,
+                  "score_nonleaked": 1.91299218416214,
+                  "score_all": 0.8282256734016396,
+                  "gap": 1.0899567811469142,
+                  "fit_seconds": 0.3
+                },
+                {
+                  "seed": 1,
+                  "n_train": 3024,
+                  "score_leaked": 0.8225430332887116,
+                  "score_nonleaked": 1.8832041966915132,
+                  "score_all": 0.8275938007334869,
+                  "gap": 1.0606611634028016,
+                  "fit_seconds": 0.7
+                },
+                {
+                  "seed": 2,
+                  "n_train": 3024,
+                  "score_leaked": 0.8097693315476322,
+                  "score_nonleaked": 2.044126117825508,
+                  "score_all": 0.8156472210060982,
+                  "gap": 1.2343567862778757,
+                  "fit_seconds": 0.3
+                },
+                {
+                  "seed": 3,
+                  "n_train": 3024,
+                  "score_leaked": 0.8176344094650025,
+                  "score_nonleaked": 1.8784127879142762,
+                  "score_all": 0.8226857350766658,
+                  "gap": 1.0607783784492737,
+                  "fit_seconds": 0.5
+                },
+                {
+                  "seed": 4,
+                  "n_train": 3024,
+                  "score_leaked": 0.8028102528236128,
+                  "score_nonleaked": 1.7622795897722245,
+                  "score_all": 0.8073791544281302,
+                  "gap": 0.9594693369486117,
+                  "fit_seconds": 0.6
+                },
+                {
+                  "seed": 5,
+                  "n_train": 3024,
+                  "score_leaked": 0.84218251458338,
+                  "score_nonleaked": 1.7594584619998932,
+                  "score_all": 0.8465504952853634,
+                  "gap": 0.9172759474165132,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 6,
+                  "n_train": 3024,
+                  "score_leaked": 0.7921223065984305,
+                  "score_nonleaked": 1.8953417885303498,
+                  "score_all": 0.7973757327028682,
+                  "gap": 1.1032194819319194,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 7,
+                  "n_train": 3024,
+                  "score_leaked": 0.8257844927735876,
+                  "score_nonleaked": 2.002996002435684,
+                  "score_all": 0.8313902618672167,
+                  "gap": 1.1772115096620965,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 3024,
+                  "score_leaked": 0.8383290590837812,
+                  "score_nonleaked": 2.0271648663282393,
+                  "score_all": 0.8439901819754214,
+                  "gap": 1.188835807244458,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 9,
+                  "n_train": 3024,
+                  "score_leaked": 0.8078841355970601,
+                  "score_nonleaked": 2.2286819863319396,
+                  "score_all": 0.8146498396481787,
+                  "gap": 1.4207978507348795,
+                  "fit_seconds": 0.3
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.8182094938776425,
+              "mean_score_nonleaked": 1.9394657981991767,
+              "mean_score_all": 0.8235488096125069,
+              "mean_gap": 1.1212563043215344,
+              "sd_gap": 0.14400315498663394,
+              "gap_ci_seed_bootstrap": [
+                1.0403671075008238,
+                1.211964544752522
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.039584811482756915,
+                2.094822904687695
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.06643738953875003,
+                "spearman_p": 0.05425462592467464,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 2.1237864392995833,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.712345300912857,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.7823400138746323,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 3024,
+                  "score_leaked": 0.7596272840416244,
+                  "score_nonleaked": 1.700162659088326,
+                  "score_all": 0.7641060239227992,
+                  "gap": 0.9405353750467017,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 1,
+                  "n_train": 3024,
+                  "score_leaked": 0.7489147001217153,
+                  "score_nonleaked": 1.9077970954619135,
+                  "score_all": 0.7544331877185735,
+                  "gap": 1.158882395340198,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 2,
+                  "n_train": 3024,
+                  "score_leaked": 0.7652788358150039,
+                  "score_nonleaked": 1.871163565548077,
+                  "score_all": 0.7705449535756375,
+                  "gap": 1.1058847297330732,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 3,
+                  "n_train": 3024,
+                  "score_leaked": 0.7661347154528078,
+                  "score_nonleaked": 1.7474785836301585,
+                  "score_all": 0.7708077814917474,
+                  "gap": 0.9813438681773508,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 3024,
+                  "score_leaked": 0.763154248812701,
+                  "score_nonleaked": 1.7652908199462383,
+                  "score_all": 0.7679263277228607,
+                  "gap": 1.0021365711335373,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 5,
+                  "n_train": 3024,
+                  "score_leaked": 0.7625634319687766,
+                  "score_nonleaked": 1.8029129844842249,
+                  "score_all": 0.7675174774569453,
+                  "gap": 1.0403495525154483,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 6,
+                  "n_train": 3024,
+                  "score_leaked": 0.749674265650394,
+                  "score_nonleaked": 1.9033389408722314,
+                  "score_all": 0.7551679069609742,
+                  "gap": 1.1536646752218376,
+                  "fit_seconds": 0.4
+                },
+                {
+                  "seed": 7,
+                  "n_train": 3024,
+                  "score_leaked": 0.7629560881821357,
+                  "score_nonleaked": 1.845816481324336,
+                  "score_all": 0.7681125662447176,
+                  "gap": 1.0828603931422003,
+                  "fit_seconds": 0.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 3024,
+                  "score_leaked": 0.7643766463771523,
+                  "score_nonleaked": 1.6219689930732568,
+                  "score_all": 0.7684604194566576,
+                  "gap": 0.8575923466961045,
+                  "fit_seconds": 0.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 3024,
+                  "score_leaked": 0.7624122612862535,
+                  "score_nonleaked": 1.6010359798927007,
+                  "score_all": 0.7664057075653317,
+                  "gap": 0.8386237186064472,
+                  "fit_seconds": 0.4
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 0.7605092477708564,
+              "mean_score_nonleaked": 1.7766966103321462,
+              "mean_score_all": 0.7653482352116244,
+              "mean_gap": 1.01618736256129,
+              "sd_gap": 0.11360386816147638,
+              "gap_ci_seed_bootstrap": [
+                0.9484821356365751,
+                1.0808606834927452
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.025829880430330413,
+                2.1926021478131936
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": true,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.06769506917612637,
+                "spearman_p": 0.049841926698541934,
+                "n_molecules": 840,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 2,
+                    "mean_abs_error": 1.6471748028664566,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 2,
+                    "mean_abs_error": 1.906218417797836,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 0,
+                    "mean_abs_error": null,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 836,
+                    "mean_abs_error": 0.7523424789412628,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "endpoint_pool_nn": {
+        "note": "NN Tanimoto of each test molecule against the A2 ChEMBL endpoint pool actually used for training (sharper than the whole-corpus definition used for the leaked/non-leaked split)",
+        "rate_ge_0p9": 0.011904761904761904,
+        "rate_ge_0p95": 0.008333333333333333,
+        "median": 0.38507877664504175
+      }
+    },
+    "solubility_aqsoldb": {
+      "benchmark": "solubility_aqsoldb",
+      "display": "Solubility-AqSolDB",
+      "task": "regression",
+      "metric": "mae",
+      "gap_definition": "MAE(non-leaked) - MAE(leaked)",
+      "leak_threshold": 0.9,
+      "n_test": 1995,
+      "n_leaked": 1013,
+      "n_nonleaked": 982,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "arms": {
+        "A1_chembl_naive": {
+          "description": "ChEMBL-derived pool, exact TDC-test duplicates NOT removed",
+          "n_train_pool": 34658,
+          "n_exact_test_duplicates_in_pool": 90,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31192,
+                  "score_leaked": 1.5096444698612026,
+                  "score_nonleaked": 1.9359167896899776,
+                  "score_all": 1.7194687395714063,
+                  "gap": 0.426272319828775,
+                  "fit_seconds": 22.6
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31192,
+                  "score_leaked": 1.5145843555883136,
+                  "score_nonleaked": 1.945368004267549,
+                  "score_all": 1.726629239299095,
+                  "gap": 0.43078364867923535,
+                  "fit_seconds": 24.9
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31192,
+                  "score_leaked": 1.525894166136296,
+                  "score_nonleaked": 1.9472860343542095,
+                  "score_all": 1.7333161283367928,
+                  "gap": 0.42139186821791363,
+                  "fit_seconds": 22.2
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31192,
+                  "score_leaked": 1.5148908882800396,
+                  "score_nonleaked": 1.9490177180571286,
+                  "score_all": 1.7285813879497647,
+                  "gap": 0.43412682977708905,
+                  "fit_seconds": 22.6
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31192,
+                  "score_leaked": 1.5166390765646078,
+                  "score_nonleaked": 1.9606693275454292,
+                  "score_all": 1.7352043429621848,
+                  "gap": 0.4440302509808214,
+                  "fit_seconds": 21.8
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31192,
+                  "score_leaked": 1.5117747791050367,
+                  "score_nonleaked": 1.9312094153163748,
+                  "score_all": 1.718233331866708,
+                  "gap": 0.41943463621133814,
+                  "fit_seconds": 22.0
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31192,
+                  "score_leaked": 1.5170654236997225,
+                  "score_nonleaked": 1.9531166692252906,
+                  "score_all": 1.7317031796426334,
+                  "gap": 0.43605124552556807,
+                  "fit_seconds": 23.1
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31192,
+                  "score_leaked": 1.515904412490834,
+                  "score_nonleaked": 1.941976582859237,
+                  "score_all": 1.725630162516785,
+                  "gap": 0.42607217036840295,
+                  "fit_seconds": 23.0
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31192,
+                  "score_leaked": 1.5166766980182886,
+                  "score_nonleaked": 1.9403510610501455,
+                  "score_all": 1.7252221739567764,
+                  "gap": 0.4236743630318569,
+                  "fit_seconds": 21.2
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31192,
+                  "score_leaked": 1.518329102928813,
+                  "score_nonleaked": 1.9499440175014544,
+                  "score_all": 1.7307831611294817,
+                  "gap": 0.43161491457264134,
+                  "fit_seconds": 20.6
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.5161403372673155,
+              "mean_score_nonleaked": 1.9454855619866795,
+              "mean_score_all": 1.7274771847231627,
+              "mean_gap": 0.4293452247193642,
+              "sd_gap": 0.0074869884135653954,
+              "gap_ci_seed_bootstrap": [
+                0.42512948742644746,
+                0.43382080715157395
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.3166787480409003,
+                0.5446535383138496
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.2311090433240529,
+                "spearman_p": 1.3466322517481687e-25,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.3075844162486856,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.97654504448337,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.4160378956401432,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.5322716787770685,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.9741818998915988,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.325443066840909,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.4909300014003795,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31192,
+                  "score_leaked": 1.4093915433835327,
+                  "score_nonleaked": 1.797478052510806,
+                  "score_all": 1.6004195894802657,
+                  "gap": 0.3880865091272734,
+                  "fit_seconds": 3.0
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31192,
+                  "score_leaked": 1.4064921404829318,
+                  "score_nonleaked": 1.8042323807946976,
+                  "score_all": 1.6022720482454151,
+                  "gap": 0.3977402403117658,
+                  "fit_seconds": 2.8
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31192,
+                  "score_leaked": 1.400957757643661,
+                  "score_nonleaked": 1.7883193160945186,
+                  "score_all": 1.5916289608510505,
+                  "gap": 0.3873615584508576,
+                  "fit_seconds": 3.0
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31192,
+                  "score_leaked": 1.3959813488921635,
+                  "score_nonleaked": 1.7829905665600922,
+                  "score_all": 1.5864791191928684,
+                  "gap": 0.38700921766792873,
+                  "fit_seconds": 3.6
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31192,
+                  "score_leaked": 1.3979252064640275,
+                  "score_nonleaked": 1.7996343064178342,
+                  "score_all": 1.5956587082959264,
+                  "gap": 0.40170909995380666,
+                  "fit_seconds": 2.6
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31192,
+                  "score_leaked": 1.4038701756440517,
+                  "score_nonleaked": 1.799964055272615,
+                  "score_all": 1.598839694338412,
+                  "gap": 0.39609387962856335,
+                  "fit_seconds": 2.7
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31192,
+                  "score_leaked": 1.4066033373944102,
+                  "score_nonleaked": 1.807862599708979,
+                  "score_all": 1.6041154153858421,
+                  "gap": 0.40125926231456877,
+                  "fit_seconds": 1.9
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31192,
+                  "score_leaked": 1.4035579853911597,
+                  "score_nonleaked": 1.8103978213671015,
+                  "score_all": 1.6038169923728016,
+                  "gap": 0.40683983597594175,
+                  "fit_seconds": 2.6
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31192,
+                  "score_leaked": 1.4058085367659234,
+                  "score_nonleaked": 1.8117637035353582,
+                  "score_all": 1.6056320825140864,
+                  "gap": 0.40595516676943477,
+                  "fit_seconds": 2.8
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31192,
+                  "score_leaked": 1.3954474852088934,
+                  "score_nonleaked": 1.797981758029916,
+                  "score_all": 1.5935871623568854,
+                  "gap": 0.4025342728210226,
+                  "fit_seconds": 3.8
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.4026035517270752,
+              "mean_score_nonleaked": 1.8000624560291918,
+              "mean_score_all": 1.5982449773033554,
+              "mean_gap": 0.39745890430211633,
+              "sd_gap": 0.007596718460416625,
+              "gap_ci_seed_bootstrap": [
+                0.3929752789949442,
+                0.40181057406265935
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.28746197481086017,
+                0.5055781286814064
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.2134379938085003,
+                "spearman_p": 5.493381578120348e-22,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.181087222818593,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.847617725249615,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.2134466853059744,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.320645150548323,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.7681034359821226,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.1903908768529092,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.3812535368461514,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31192,
+                  "score_leaked": 1.6427913066060216,
+                  "score_nonleaked": 2.278493677697091,
+                  "score_all": 1.9557034511731548,
+                  "gap": 0.6357023710910694,
+                  "fit_seconds": 5.1
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31192,
+                  "score_leaked": 1.6387019757907697,
+                  "score_nonleaked": 2.2702076333489645,
+                  "score_all": 1.9495483696364575,
+                  "gap": 0.6315056575581948,
+                  "fit_seconds": 4.5
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31192,
+                  "score_leaked": 1.6264129138393395,
+                  "score_nonleaked": 2.25304176542293,
+                  "score_all": 1.9348587946689564,
+                  "gap": 0.6266288515835905,
+                  "fit_seconds": 4.4
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31192,
+                  "score_leaked": 1.6507114581931372,
+                  "score_nonleaked": 2.278108955984331,
+                  "score_all": 1.9595356901886019,
+                  "gap": 0.6273974977911936,
+                  "fit_seconds": 4.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31192,
+                  "score_leaked": 1.6267266735349066,
+                  "score_nonleaked": 2.293393948891654,
+                  "score_all": 1.954880690778178,
+                  "gap": 0.6666672753567475,
+                  "fit_seconds": 4.2
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31192,
+                  "score_leaked": 1.644059921814492,
+                  "score_nonleaked": 2.272604992255442,
+                  "score_all": 1.953449024156854,
+                  "gap": 0.6285450704409501,
+                  "fit_seconds": 4.9
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31192,
+                  "score_leaked": 1.6336666785311407,
+                  "score_nonleaked": 2.2768179354431513,
+                  "score_all": 1.9502453924597596,
+                  "gap": 0.6431512569120106,
+                  "fit_seconds": 4.5
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31192,
+                  "score_leaked": 1.6537847607146325,
+                  "score_nonleaked": 2.279950576588063,
+                  "score_all": 1.9620027212097249,
+                  "gap": 0.6261658158734305,
+                  "fit_seconds": 4.3
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31192,
+                  "score_leaked": 1.6412657506521202,
+                  "score_nonleaked": 2.2684322089912268,
+                  "score_all": 1.9499762579649036,
+                  "gap": 0.6271664583391066,
+                  "fit_seconds": 4.2
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31192,
+                  "score_leaked": 1.6212817923332286,
+                  "score_nonleaked": 2.191028788754545,
+                  "score_all": 1.9017286848072803,
+                  "gap": 0.5697469964213164,
+                  "fit_seconds": 4.8
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.6379403232009788,
+              "mean_score_nonleaked": 2.2662080483377403,
+              "mean_score_all": 1.947192907704387,
+              "mean_gap": 0.628267725136761,
+              "sd_gap": 0.024026905670993505,
+              "gap_ci_seed_bootstrap": [
+                0.6122997668829624,
+                0.6410880815292137
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.4936598477566734,
+                0.7727723030957807
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.2230751384729281,
+                "spearman_p": 6.4470887236177374e-24,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.628012510123893,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 2.3060110359521504,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.7209790968505998,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.7482511057643075,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 2.1281490732338493,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.118109766187634,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.6101632569602995,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "A2_chembl_dedup": {
+          "description": "ChEMBL-derived pool with exact TDC-test canonical-SMILES duplicates removed (PRIMARY)",
+          "n_train_pool": 34568,
+          "n_exact_test_duplicates_in_pool": 90,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31111,
+                  "score_leaked": 1.533910714450373,
+                  "score_nonleaked": 1.9527561372519584,
+                  "score_all": 1.7400792383557149,
+                  "gap": 0.41884542280158543,
+                  "fit_seconds": 22.6
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31111,
+                  "score_leaked": 1.5434482872746453,
+                  "score_nonleaked": 1.9509566757116366,
+                  "score_all": 1.74403637621957,
+                  "gap": 0.4075083884369912,
+                  "fit_seconds": 23.1
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31111,
+                  "score_leaked": 1.545143336241374,
+                  "score_nonleaked": 1.95145088676712,
+                  "score_all": 1.7451403360490345,
+                  "gap": 0.4063075505257461,
+                  "fit_seconds": 24.9
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31111,
+                  "score_leaked": 1.538029457665605,
+                  "score_nonleaked": 1.9404053659650895,
+                  "score_all": 1.7360911829538723,
+                  "gap": 0.40237590829948444,
+                  "fit_seconds": 22.7
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31111,
+                  "score_leaked": 1.5388771470438214,
+                  "score_nonleaked": 1.9541037151780523,
+                  "score_all": 1.7432643600301947,
+                  "gap": 0.41522656813423087,
+                  "fit_seconds": 24.1
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31111,
+                  "score_leaked": 1.539189222420384,
+                  "score_nonleaked": 1.9576568031893473,
+                  "score_all": 1.7451717609242046,
+                  "gap": 0.4184675807689633,
+                  "fit_seconds": 23.7
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31111,
+                  "score_leaked": 1.5480498172742476,
+                  "score_nonleaked": 1.9520260099072546,
+                  "score_all": 1.7468992514424748,
+                  "gap": 0.403976192633007,
+                  "fit_seconds": 24.7
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31111,
+                  "score_leaked": 1.5385263690936832,
+                  "score_nonleaked": 1.949701005714652,
+                  "score_all": 1.740919097495584,
+                  "gap": 0.41117463662096876,
+                  "fit_seconds": 23.5
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31111,
+                  "score_leaked": 1.5510697060275416,
+                  "score_nonleaked": 1.9495637129862244,
+                  "score_all": 1.7472206407811388,
+                  "gap": 0.39849400695868287,
+                  "fit_seconds": 25.4
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31111,
+                  "score_leaked": 1.5554506248511402,
+                  "score_nonleaked": 1.9657116859130415,
+                  "score_all": 1.757393663428978,
+                  "gap": 0.4102610610619013,
+                  "fit_seconds": 22.5
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.5431694682342818,
+              "mean_score_nonleaked": 1.9524331998584379,
+              "mean_score_all": 1.7446215907680767,
+              "mean_gap": 0.4092637316241562,
+              "sd_gap": 0.006830720415530861,
+              "gap_ci_seed_bootstrap": [
+                0.4052277259129234,
+                0.41318126576271136
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.2948806411977147,
+                0.5262340705210009
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.2193612817795815,
+                "spearman_p": 3.6662087493560925e-23,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.3168712009426353,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.985609912374997,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.4109430071620825,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.544669971860203,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.9418479026200366,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.3088857594804884,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.5213624911956298,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31111,
+                  "score_leaked": 1.4134963971237509,
+                  "score_nonleaked": 1.8098527671889166,
+                  "score_all": 1.6085951216370302,
+                  "gap": 0.3963563700651658,
+                  "fit_seconds": 2.8
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31111,
+                  "score_leaked": 1.4295865700854944,
+                  "score_nonleaked": 1.804889019758841,
+                  "score_all": 1.6143219112279639,
+                  "gap": 0.3753024496733466,
+                  "fit_seconds": 4.0
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31111,
+                  "score_leaked": 1.4117007127696573,
+                  "score_nonleaked": 1.8089764561957944,
+                  "score_all": 1.6072519809623724,
+                  "gap": 0.39727574342613714,
+                  "fit_seconds": 3.5
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31111,
+                  "score_leaked": 1.4046391075932616,
+                  "score_nonleaked": 1.802551574241065,
+                  "score_all": 1.6005037904244108,
+                  "gap": 0.39791246664780333,
+                  "fit_seconds": 2.2
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31111,
+                  "score_leaked": 1.4098344311117783,
+                  "score_nonleaked": 1.8024823729309236,
+                  "score_all": 1.6031077538518288,
+                  "gap": 0.3926479418191453,
+                  "fit_seconds": 2.7
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31111,
+                  "score_leaked": 1.4149620650993473,
+                  "score_nonleaked": 1.7941572828889074,
+                  "score_all": 1.6016135457356118,
+                  "gap": 0.3791952177895601,
+                  "fit_seconds": 2.7
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31111,
+                  "score_leaked": 1.4092107063562735,
+                  "score_nonleaked": 1.7965472197695853,
+                  "score_all": 1.5998695816303947,
+                  "gap": 0.38733651341331177,
+                  "fit_seconds": 3.2
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31111,
+                  "score_leaked": 1.412104698909401,
+                  "score_nonleaked": 1.796386622469953,
+                  "score_all": 1.601260011659507,
+                  "gap": 0.3842819235605519,
+                  "fit_seconds": 4.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31111,
+                  "score_leaked": 1.4073424639981318,
+                  "score_nonleaked": 1.7979440331790284,
+                  "score_all": 1.5996084995548436,
+                  "gap": 0.3906015691808966,
+                  "fit_seconds": 3.4
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31111,
+                  "score_leaked": 1.4099234061965773,
+                  "score_nonleaked": 1.8036125036140507,
+                  "score_all": 1.6037092175569574,
+                  "gap": 0.3936890974174734,
+                  "fit_seconds": 3.0
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.4122800559243676,
+              "mean_score_nonleaked": 1.8017399852237066,
+              "mean_score_all": 1.603984141424092,
+              "mean_gap": 0.38945992929933915,
+              "sd_gap": 0.00779291011069799,
+              "gap_ci_seed_bootstrap": [
+                0.3845345075097376,
+                0.3938724089756113
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.28080179361099633,
+                0.504039067437994
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.20994990919564965,
+                "spearman_p": 2.605905119459019e-21,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.180627328424872,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.8495915935726541,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.2176119533143153,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.3241116209890191,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.7717183856203162,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.1852076509827767,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.3912905698805613,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 31111,
+                  "score_leaked": 1.644903921298271,
+                  "score_nonleaked": 2.2336713367213483,
+                  "score_all": 1.9347132455817107,
+                  "gap": 0.5887674154230773,
+                  "fit_seconds": 6.0
+                },
+                {
+                  "seed": 1,
+                  "n_train": 31111,
+                  "score_leaked": 1.6612361349752112,
+                  "score_nonleaked": 2.2875286990970416,
+                  "score_all": 1.9695164848336761,
+                  "gap": 0.6262925641218304,
+                  "fit_seconds": 4.1
+                },
+                {
+                  "seed": 2,
+                  "n_train": 31111,
+                  "score_leaked": 1.6490224835491454,
+                  "score_nonleaked": 2.247492976093736,
+                  "score_all": 1.9436079590773596,
+                  "gap": 0.5984704925445905,
+                  "fit_seconds": 4.4
+                },
+                {
+                  "seed": 3,
+                  "n_train": 31111,
+                  "score_leaked": 1.6689882486589893,
+                  "score_nonleaked": 2.2598749688886577,
+                  "score_all": 1.9598407595690317,
+                  "gap": 0.5908867202296684,
+                  "fit_seconds": 5.1
+                },
+                {
+                  "seed": 4,
+                  "n_train": 31111,
+                  "score_leaked": 1.6740009923997576,
+                  "score_nonleaked": 2.2421519364062403,
+                  "score_all": 1.9536622590736252,
+                  "gap": 0.5681509440064827,
+                  "fit_seconds": 4.9
+                },
+                {
+                  "seed": 5,
+                  "n_train": 31111,
+                  "score_leaked": 1.6581999612245621,
+                  "score_nonleaked": 2.2715920210434883,
+                  "score_all": 1.9601302884136274,
+                  "gap": 0.6133920598189262,
+                  "fit_seconds": 5.1
+                },
+                {
+                  "seed": 6,
+                  "n_train": 31111,
+                  "score_leaked": 1.6634500808105854,
+                  "score_nonleaked": 2.2453968020059483,
+                  "score_all": 1.949902050842589,
+                  "gap": 0.5819467211953628,
+                  "fit_seconds": 4.5
+                },
+                {
+                  "seed": 7,
+                  "n_train": 31111,
+                  "score_leaked": 1.6506875602278759,
+                  "score_nonleaked": 2.2257779278783643,
+                  "score_all": 1.9337646234022017,
+                  "gap": 0.5750903676504884,
+                  "fit_seconds": 4.2
+                },
+                {
+                  "seed": 8,
+                  "n_train": 31111,
+                  "score_leaked": 1.6599637621087788,
+                  "score_nonleaked": 2.2898528240293063,
+                  "score_all": 1.9700144181518657,
+                  "gap": 0.6298890619205275,
+                  "fit_seconds": 4.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 31111,
+                  "score_leaked": 1.6736730477073984,
+                  "score_nonleaked": 2.2948209857231365,
+                  "score_all": 1.9794210552920872,
+                  "gap": 0.6211479380157381,
+                  "fit_seconds": 5.7
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.6604126192960575,
+              "mean_score_nonleaked": 2.259816047788727,
+              "mean_score_all": 1.9554573144237772,
+              "mean_gap": 0.5994034284926693,
+              "sd_gap": 0.02206055748272496,
+              "gap_ci_seed_bootstrap": [
+                0.5865528054596053,
+                0.6125619522069067
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.4637016610706212,
+                0.7388200120843177
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.21127674185934922,
+                "spearman_p": 1.446030957198272e-21,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 2.6307722385015335,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 2.2963087939959044,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.6844635769499703,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.7729099956438068,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 2.1204843552368753,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.1406324247052138,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.6329719004484387,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "B_tdc_trainval": {
+          "description": "control: trained on the benchmark's own train_val split",
+          "n_train_pool": 7985,
+          "n_exact_test_duplicates_in_pool": 0,
+          "models": {
+            "random_forest": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 7186,
+                  "score_leaked": 1.191963918691003,
+                  "score_nonleaked": 1.4551535219308416,
+                  "score_all": 1.321513888807054,
+                  "gap": 0.26318960323983864,
+                  "fit_seconds": 4.9
+                },
+                {
+                  "seed": 1,
+                  "n_train": 7186,
+                  "score_leaked": 1.2127545106182194,
+                  "score_nonleaked": 1.4636486374417852,
+                  "score_all": 1.3362522712902702,
+                  "gap": 0.2508941268235658,
+                  "fit_seconds": 5.3
+                },
+                {
+                  "seed": 2,
+                  "n_train": 7186,
+                  "score_leaked": 1.2093263985553395,
+                  "score_nonleaked": 1.4479703888179665,
+                  "score_all": 1.3267942674465172,
+                  "gap": 0.23864399026262695,
+                  "fit_seconds": 4.9
+                },
+                {
+                  "seed": 3,
+                  "n_train": 7186,
+                  "score_leaked": 1.1944703761454185,
+                  "score_nonleaked": 1.4616419040099644,
+                  "score_all": 1.325980371314834,
+                  "gap": 0.2671715278645459,
+                  "fit_seconds": 4.8
+                },
+                {
+                  "seed": 4,
+                  "n_train": 7186,
+                  "score_leaked": 1.1921644032900516,
+                  "score_nonleaked": 1.441388630144951,
+                  "score_all": 1.3148401881379268,
+                  "gap": 0.24922422685489942,
+                  "fit_seconds": 4.3
+                },
+                {
+                  "seed": 5,
+                  "n_train": 7186,
+                  "score_leaked": 1.2106125732437727,
+                  "score_nonleaked": 1.453234335684956,
+                  "score_all": 1.3300384232273526,
+                  "gap": 0.24262176244118328,
+                  "fit_seconds": 4.3
+                },
+                {
+                  "seed": 6,
+                  "n_train": 7186,
+                  "score_leaked": 1.1925872620441458,
+                  "score_nonleaked": 1.4383873915711354,
+                  "score_all": 1.3135776014905134,
+                  "gap": 0.2458001295269896,
+                  "fit_seconds": 4.8
+                },
+                {
+                  "seed": 7,
+                  "n_train": 7186,
+                  "score_leaked": 1.1953993551469686,
+                  "score_nonleaked": 1.435587529445454,
+                  "score_all": 1.3136273186362482,
+                  "gap": 0.2401881742984855,
+                  "fit_seconds": 5.0
+                },
+                {
+                  "seed": 8,
+                  "n_train": 7186,
+                  "score_leaked": 1.1812818649223091,
+                  "score_nonleaked": 1.4338171588087367,
+                  "score_all": 1.3055874582037488,
+                  "gap": 0.2525352938864276,
+                  "fit_seconds": 5.0
+                },
+                {
+                  "seed": 9,
+                  "n_train": 7186,
+                  "score_leaked": 1.195673243844044,
+                  "score_nonleaked": 1.4409903881151085,
+                  "score_all": 1.3164258431794753,
+                  "gap": 0.24531714427106444,
+                  "fit_seconds": 5.0
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.197623390650127,
+              "mean_score_nonleaked": 1.44718198859709,
+              "mean_score_all": 1.320463763173394,
+              "mean_gap": 0.24955859794696272,
+              "sd_gap": 0.00939234302171162,
+              "gap_ci_seed_bootstrap": [
+                0.2443179235907074,
+                0.2554668622609555
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.16405175298352417,
+                0.3380199695719462
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.10534155812875032,
+                "spearman_p": 2.4135404381327303e-06,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 1.4546666538768032,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.4778250917310458,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.3771724955850106,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.275641955621102,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.2477448033247092,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 1.8652261058311617,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.181431447580545,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "linear_ecfp": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 7186,
+                  "score_leaked": 1.5142736230573786,
+                  "score_nonleaked": 1.4282340471713115,
+                  "score_all": 1.4719223130222319,
+                  "gap": -0.08603957588606703,
+                  "fit_seconds": 0.8
+                },
+                {
+                  "seed": 1,
+                  "n_train": 7186,
+                  "score_leaked": 1.5151196395316395,
+                  "score_nonleaked": 1.4485355973069796,
+                  "score_all": 1.4823449380456164,
+                  "gap": -0.06658404222465997,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 2,
+                  "n_train": 7186,
+                  "score_leaked": 1.5279620262397071,
+                  "score_nonleaked": 1.4406208792350812,
+                  "score_all": 1.4849700431025932,
+                  "gap": -0.08734114700462592,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 3,
+                  "n_train": 7186,
+                  "score_leaked": 1.5358638710972876,
+                  "score_nonleaked": 1.45539867436265,
+                  "score_all": 1.49625644092515,
+                  "gap": -0.0804651967346377,
+                  "fit_seconds": 0.8
+                },
+                {
+                  "seed": 4,
+                  "n_train": 7186,
+                  "score_leaked": 1.5455039011078164,
+                  "score_nonleaked": 1.4321215488295804,
+                  "score_all": 1.4896936404876522,
+                  "gap": -0.11338235227823601,
+                  "fit_seconds": 0.8
+                },
+                {
+                  "seed": 5,
+                  "n_train": 7186,
+                  "score_leaked": 1.4871514065906157,
+                  "score_nonleaked": 1.4259879379498643,
+                  "score_all": 1.4570448771644413,
+                  "gap": -0.061163468640751395,
+                  "fit_seconds": 0.6
+                },
+                {
+                  "seed": 6,
+                  "n_train": 7186,
+                  "score_leaked": 1.4778323217010725,
+                  "score_nonleaked": 1.4389402765667474,
+                  "score_all": 1.4586884679056302,
+                  "gap": -0.03889204513432509,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 7,
+                  "n_train": 7186,
+                  "score_leaked": 1.5311183419772252,
+                  "score_nonleaked": 1.466579745025724,
+                  "score_all": 1.4993504711970878,
+                  "gap": -0.0645385969515011,
+                  "fit_seconds": 1.5
+                },
+                {
+                  "seed": 8,
+                  "n_train": 7186,
+                  "score_leaked": 1.518283615731328,
+                  "score_nonleaked": 1.4560341207218621,
+                  "score_all": 1.487642510919651,
+                  "gap": -0.06224949500946586,
+                  "fit_seconds": 1.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 7186,
+                  "score_leaked": 1.5225101428439825,
+                  "score_nonleaked": 1.4658192326563202,
+                  "score_all": 1.4946051434433385,
+                  "gap": -0.05669091018766226,
+                  "fit_seconds": 1.2
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.5175618889878053,
+              "mean_score_nonleaked": 1.4458272059826123,
+              "mean_score_all": 1.482251884621339,
+              "mean_gap": -0.07173468300519323,
+              "sd_gap": 0.020666473082570785,
+              "gap_ci_seed_bootstrap": [
+                -0.0844695496508361,
+                -0.0600658763927774
+              ],
+              "gap_ci_molecule_bootstrap": [
+                -0.1750633317639929,
+                0.03229446626764626
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": false,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": 0.009969811840061075,
+                "spearman_p": 0.6562924177693871,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 1.5412452384094495,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.4027222637391201,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.2930130295935744,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.2327745967404997,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.0655084172233862,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.8819294439408063,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.470082364115158,
+                    "auc": null
+                  }
+                ]
+              }
+            },
+            "knn_tanimoto": {
+              "per_seed": [
+                {
+                  "seed": 0,
+                  "n_train": 7186,
+                  "score_leaked": 1.251024047158796,
+                  "score_nonleaked": 1.5119101239379016,
+                  "score_all": 1.379440151117233,
+                  "gap": 0.2608860767791057,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 1,
+                  "n_train": 7186,
+                  "score_leaked": 1.2605162798964349,
+                  "score_nonleaked": 1.4986180511645404,
+                  "score_all": 1.3777172520193819,
+                  "gap": 0.2381017712681055,
+                  "fit_seconds": 1.3
+                },
+                {
+                  "seed": 2,
+                  "n_train": 7186,
+                  "score_leaked": 1.2678615370124033,
+                  "score_nonleaked": 1.5069884685192771,
+                  "score_all": 1.385567124350624,
+                  "gap": 0.2391269315068738,
+                  "fit_seconds": 1.2
+                },
+                {
+                  "seed": 3,
+                  "n_train": 7186,
+                  "score_leaked": 1.2335898907280993,
+                  "score_nonleaked": 1.4810669554931795,
+                  "score_all": 1.355405668973367,
+                  "gap": 0.24747706476508013,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 4,
+                  "n_train": 7186,
+                  "score_leaked": 1.2712007320652725,
+                  "score_nonleaked": 1.4903286011314736,
+                  "score_all": 1.379062169370039,
+                  "gap": 0.21912786906620108,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 5,
+                  "n_train": 7186,
+                  "score_leaked": 1.2475649612918152,
+                  "score_nonleaked": 1.4831645349164289,
+                  "score_all": 1.3635342752263369,
+                  "gap": 0.2355995736246137,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 6,
+                  "n_train": 7186,
+                  "score_leaked": 1.2551068166091104,
+                  "score_nonleaked": 1.4841499190281648,
+                  "score_all": 1.3678488349427,
+                  "gap": 0.22904310241905446,
+                  "fit_seconds": 1.0
+                },
+                {
+                  "seed": 7,
+                  "n_train": 7186,
+                  "score_leaked": 1.2554464105279233,
+                  "score_nonleaked": 1.4995561543041391,
+                  "score_all": 1.37560469042178,
+                  "gap": 0.24410974377621586,
+                  "fit_seconds": 1.1
+                },
+                {
+                  "seed": 8,
+                  "n_train": 7186,
+                  "score_leaked": 1.2386354874197596,
+                  "score_nonleaked": 1.4799693515803067,
+                  "score_all": 1.3574273944902646,
+                  "gap": 0.24133386416054714,
+                  "fit_seconds": 1.3
+                },
+                {
+                  "seed": 9,
+                  "n_train": 7186,
+                  "score_leaked": 1.259880614772762,
+                  "score_nonleaked": 1.4906145457266446,
+                  "score_all": 1.3734549106107132,
+                  "gap": 0.23073393095388273,
+                  "fit_seconds": 1.2
+                }
+              ],
+              "n_seeds": 10,
+              "mean_score_leaked": 1.2540826777482377,
+              "mean_score_nonleaked": 1.4926366705802057,
+              "mean_score_all": 1.371506247152244,
+              "mean_gap": 0.23855399283196804,
+              "sd_gap": 0.011329329116210343,
+              "gap_ci_seed_bootstrap": [
+                0.23208451481047093,
+                0.24529357759045806
+              ],
+              "gap_ci_molecule_bootstrap": [
+                0.14242608562038606,
+                0.3330220019436621
+              ],
+              "molecule_bootstrap_draws_used": 10000,
+              "seed_ci_excludes_zero": true,
+              "molecule_ci_excludes_zero": true,
+              "underpowered": false,
+              "similarity_response": {
+                "statistic": "Spearman rho between NN-to-ChEMBL Tanimoto and per-molecule absolute error (seed-averaged predictions)",
+                "spearman_rho": -0.09002162397318476,
+                "spearman_p": 5.661055503841383e-05,
+                "n_molecules": 1995,
+                "bins": [
+                  {
+                    "bin": "<0.5",
+                    "n": 248,
+                    "mean_abs_error": 1.439136965259792,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.5-0.7",
+                    "n": 517,
+                    "mean_abs_error": 1.502846253289163,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.7-0.8",
+                    "n": 149,
+                    "mean_abs_error": 1.564077099530121,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.8-0.9",
+                    "n": 68,
+                    "mean_abs_error": 1.207925118068589,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.9-0.95",
+                    "n": 22,
+                    "mean_abs_error": 1.483824481172583,
+                    "auc": null
+                  },
+                  {
+                    "bin": "0.95-<1.0",
+                    "n": 14,
+                    "mean_abs_error": 2.0635121674952246,
+                    "auc": null
+                  },
+                  {
+                    "bin": "=1.0",
+                    "n": 977,
+                    "mean_abs_error": 1.222097716567618,
+                    "auc": null
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "endpoint_pool_nn": {
+        "note": "NN Tanimoto of each test molecule against the A2 ChEMBL endpoint pool actually used for training (sharper than the whole-corpus definition used for the leaked/non-leaked split)",
+        "rate_ge_0p9": 0.013533834586466165,
+        "rate_ge_0p95": 0.012030075187969926,
+        "median": 0.35714285714285715
+      }
+    }
+  },
+  "predictions_file": "<REPO_ROOT>/evidence/s1b_gap_results_predictions.jsonl"
+}

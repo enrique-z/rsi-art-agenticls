@@ -1,0 +1,83 @@
+{
+  "generated_utc": "2026-09-07T10:08:23Z",
+  "corpus": "DrugBank 5.1",
+  "corpus_path": "<DATA_ROOT>/drugbank/5.1/full database.xml",
+  "corpus_bytes": 1619697173,
+  "corpus_sha256": "37569dd923d30236880e982ed40c3422d9f67fc7b9864e42b1390edc15284b6c",
+  "parse": {
+    "n_drug_records": 73687,
+    "n_with_calculated_smiles": 12313,
+    "n_rdkit_parse_failures": 10,
+    "n_distinct_canonical": 12293
+  },
+  "leak_threshold": 0.9,
+  "fingerprint": "Morgan r=2, 2048 bits (identical to the ChEMBL census)",
+  "benchmarks": {
+    "bbb_martins": {
+      "display": "BBB-Martins",
+      "n_test": 406,
+      "drugbank_rate_0p9": 51.97,
+      "drugbank_ci": [
+        47.11,
+        56.79
+      ],
+      "n_leaked_drugbank": 211,
+      "chembl_rate_0p9": 93.84,
+      "union_rate_0p9": 94.58,
+      "union_ci": [
+        91.93,
+        96.39
+      ],
+      "n_leaked_union": 384,
+      "clean_subset_chembl_only": 25,
+      "clean_subset_union": 22,
+      "clean_molecules_lost_to_second_corpus": 3,
+      "clean_shrinkage_percent": 12.0,
+      "median_nn_drugbank": 0.98
+    },
+    "lipophilicity_astrazeneca": {
+      "display": "Lipophilicity-AZ",
+      "n_test": 840,
+      "drugbank_rate_0p9": 12.14,
+      "drugbank_ci": [
+        10.1,
+        14.53
+      ],
+      "n_leaked_drugbank": 102,
+      "chembl_rate_0p9": 99.52,
+      "union_rate_0p9": 99.76,
+      "union_ci": [
+        99.14,
+        99.93
+      ],
+      "n_leaked_union": 838,
+      "clean_subset_chembl_only": 4,
+      "clean_subset_union": 2,
+      "clean_molecules_lost_to_second_corpus": 2,
+      "clean_shrinkage_percent": 50.0,
+      "median_nn_drugbank": 0.391
+    },
+    "solubility_aqsoldb": {
+      "display": "Solubility-AqSolDB",
+      "n_test": 1995,
+      "drugbank_rate_0p9": 15.39,
+      "drugbank_ci": [
+        13.87,
+        17.04
+      ],
+      "n_leaked_drugbank": 307,
+      "chembl_rate_0p9": 50.78,
+      "union_rate_0p9": 51.23,
+      "union_ci": [
+        49.03,
+        53.42
+      ],
+      "n_leaked_union": 1022,
+      "clean_subset_chembl_only": 982,
+      "clean_subset_union": 973,
+      "clean_molecules_lost_to_second_corpus": 9,
+      "clean_shrinkage_percent": 0.92,
+      "median_nn_drugbank": 0.4583
+    }
+  }
+}

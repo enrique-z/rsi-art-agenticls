@@ -1,0 +1,847 @@
+{
+  "generated_utc": "2026-09-07T02:07:18Z",
+  "leak_threshold": 0.9,
+  "chembl_scaffold_table": {
+    "path": "<REPO_ROOT>/.work/agenticls/full/chembl_scaffold_counts.json",
+    "available": true
+  },
+  "benchmarks": {
+    "bbb_martins": {
+      "display": "BBB-Martins",
+      "task": "classification",
+      "n_test": 406,
+      "n_leaked": 381,
+      "n_nonleaked": 25,
+      "R2_label_agreement": {
+        "vs_own_trainval": {
+          "statistic": "label_agreement_rate",
+          "agreement_direction": "higher",
+          "n_near_pairs": 1,
+          "near_duplicate_pairs": {
+            "mean": 1.0,
+            "ci": [
+              1.0,
+              1.0
+            ]
+          },
+          "random_pairs": {
+            "mean": 0.0,
+            "ci": [
+              0.0,
+              0.0
+            ]
+          },
+          "paired_difference_near_minus_random": {
+            "mean": 1.0,
+            "ci": [
+              1.0,
+              1.0
+            ]
+          },
+          "difference_ci_excludes_zero": true
+        },
+        "vs_chembl_endpoint_pool": {
+          "available": false,
+          "reason": "ChEMBL 36 carries no usable BBB label pool (see chembl_endpoints.json)"
+        }
+      },
+      "R3_covariates": {
+        "mw": {
+          "leaked": {
+            "mean": 298.2335984251969,
+            "median": 284.42800000000005,
+            "ci": [
+              283.1494660104987,
+              314.75418392388457
+            ]
+          },
+          "nonleaked": {
+            "mean": 340.66880000000003,
+            "median": 309.32900000000006,
+            "ci": [
+              278.1927820000001,
+              404.32204
+            ]
+          },
+          "standardised_mean_difference": -0.2616547025113288
+        },
+        "heavy_atoms": {
+          "leaked": {
+            "mean": 20.590551181102363,
+            "median": 20.0,
+            "ci": [
+              19.488188976377952,
+              21.787401574803148
+            ]
+          },
+          "nonleaked": {
+            "mean": 23.2,
+            "median": 22.0,
+            "ci": [
+              18.72,
+              27.88
+            ]
+          },
+          "standardised_mean_difference": -0.22301867470385758
+        },
+        "tpsa": {
+          "leaked": {
+            "mean": 60.87603674540683,
+            "median": 51.16,
+            "ci": [
+              55.738557742782156,
+              66.73482283464567
+            ]
+          },
+          "nonleaked": {
+            "mean": 103.24160000000002,
+            "median": 99.82,
+            "ci": [
+              76.97254,
+              130.32385
+            ]
+          },
+          "standardised_mean_difference": -0.6779516276668137
+        },
+        "chembl_scaffold_count": {
+          "leaked": {
+            "mean": 168.5511811023622,
+            "median": 5.0,
+            "ci": [
+              107.74783464566929,
+              239.0583333333333
+            ]
+          },
+          "nonleaked": {
+            "mean": 117.88,
+            "median": 0.0,
+            "ci": [
+              4.36,
+              328.40099999999995
+            ]
+          },
+          "standardised_mean_difference": 0.08550772362859793
+        },
+        "label_balance": {
+          "leaked_positive_rate": 0.821522309711286,
+          "nonleaked_positive_rate": 0.6
+        },
+        "within_test_scaffold_frequency": {
+          "leaked_mean": 27.304461942257216,
+          "nonleaked_mean": 14.2
+        }
+      },
+      "R3_matched_gap": {
+        "B_tdc_trainval|knn_tanimoto": {
+          "strata_definition": "MW quintile x label class",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 8,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": -0.08391666666666658,
+            "matched_gap_ci": [
+              -0.2367499999999999,
+              0.053333333333333455
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": -0.0728015986864199,
+            "matched_gap_ci": [
+              -0.3286071428571428,
+              0.10000000000000009
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 200
+          }
+        },
+        "B_tdc_trainval|linear_ecfp": {
+          "strata_definition": "MW quintile x label class",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 8,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": 0.04518333333333335,
+            "matched_gap_ci": [
+              -0.12066666666666664,
+              0.15333333333333332
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": 0.06115465130054333,
+            "matched_gap_ci": [
+              -0.13051960784313718,
+              0.19333333333333336
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 199
+          }
+        },
+        "B_tdc_trainval|random_forest": {
+          "strata_definition": "MW quintile x label class",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 8,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": -0.04951666666666672,
+            "matched_gap_ci": [
+              -0.22683333333333344,
+              0.06016666666666676
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 25,
+            "matched_gap_mean": -0.027596874019700145,
+            "matched_gap_ci": [
+              -0.22885025062656641,
+              0.11333333333333329
+            ],
+            "matched_ci_excludes_zero": false,
+            "n_repeats": 200
+          }
+        }
+      }
+    },
+    "lipophilicity_astrazeneca": {
+      "display": "Lipophilicity-AZ",
+      "task": "regression",
+      "n_test": 840,
+      "n_leaked": 836,
+      "n_nonleaked": 4,
+      "R2_label_agreement": {
+        "vs_own_trainval": {
+          "statistic": "mean_abs_label_difference",
+          "agreement_direction": "lower",
+          "n_near_pairs": 18,
+          "near_duplicate_pairs": {
+            "mean": 0.47388888888888897,
+            "ci": [
+              0.37333333333333335,
+              0.5811249999999999
+            ]
+          },
+          "random_pairs": {
+            "mean": 1.4861111111111114,
+            "ci": [
+              0.9755277777777778,
+              2.060013888888889
+            ]
+          },
+          "paired_difference_near_minus_random": {
+            "mean": -1.0122222222222221,
+            "ci": [
+              -1.6044583333333333,
+              -0.47165277777777787
+            ]
+          },
+          "difference_ci_excludes_zero": true
+        },
+        "vs_chembl_endpoint_pool": {
+          "statistic": "mean_abs_label_difference",
+          "agreement_direction": "lower",
+          "n_near_pairs": 157,
+          "near_duplicate_pairs": {
+            "mean": 0.08080891719745224,
+            "ci": [
+              0.05513964968152867,
+              0.11044601910828025
+            ]
+          },
+          "random_pairs": {
+            "mean": 1.6180573248407646,
+            "ci": [
+              1.4191695859872613,
+              1.8304785031847133
+            ]
+          },
+          "paired_difference_near_minus_random": {
+            "mean": -1.537248407643312,
+            "ci": [
+              -1.7484318471337583,
+              -1.3339315286624205
+            ]
+          },
+          "difference_ci_excludes_zero": true,
+          "pool_size": 17895
+        }
+      },
+      "R3_covariates": {
+        "mw": {
+          "leaked": {
+            "mean": 395.33539354066994,
+            "median": 401.89400000000006,
+            "ci": [
+              388.6340387260767,
+              402.0497769736844
+            ]
+          },
+          "nonleaked": {
+            "mean": 243.37375,
+            "median": 241.47450000000003,
+            "ci": [
+              227.94199999999998,
+              258.8055
+            ]
+          },
+          "standardised_mean_difference": 2.132908411152861
+        },
+        "heavy_atoms": {
+          "leaked": {
+            "mean": 27.723684210526315,
+            "median": 28.0,
+            "ci": [
+              27.260765550239235,
+              28.175837320574164
+            ]
+          },
+          "nonleaked": {
+            "mean": 16.75,
+            "median": 17.0,
+            "ci": [
+              15.0,
+              18.5
+            ]
+          },
+          "standardised_mean_difference": 2.1712381302794395
+        },
+        "tpsa": {
+          "leaked": {
+            "mean": 80.70123205741628,
+            "median": 83.13,
+            "ci": [
+              78.73602093301434,
+              82.63664593301435
+            ]
+          },
+          "nonleaked": {
+            "mean": 76.635,
+            "median": 64.35,
+            "ci": [
+              60.11,
+              104.90500000000002
+            ]
+          },
+          "standardised_mean_difference": 0.14139299732772156
+        },
+        "chembl_scaffold_count": {
+          "leaked": {
+            "mean": 150.39473684210526,
+            "median": 15.0,
+            "ci": [
+              120.45598086124402,
+              181.82197966507178
+            ]
+          },
+          "nonleaked": {
+            "mean": 936.75,
+            "median": 931.0,
+            "ci": [
+              79.5,
+              1794.0
+            ]
+          },
+          "standardised_mean_difference": -1.0143349369782415
+        },
+        "label": {
+          "leaked_mean": 2.3518181818181816,
+          "nonleaked_mean": 1.32,
+          "leaked_sd": 1.18200673593207,
+          "nonleaked_sd": 2.037563904928301,
+          "standardised_mean_difference": 0.6194672921166252
+        },
+        "within_test_scaffold_frequency": {
+          "leaked_mean": 4.391148325358851,
+          "nonleaked_mean": 2.25
+        }
+      },
+      "R3_matched_gap": {
+        "A1_chembl_naive|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "A1_chembl_naive|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "A1_chembl_naive|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "A2_chembl_dedup|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "A2_chembl_dedup|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "A2_chembl_dedup|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "B_tdc_trainval|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "B_tdc_trainval|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        },
+        "B_tdc_trainval|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          },
+          "matched_on_mw_only": {
+            "n_matched_per_side": 4,
+            "note": "too few matched molecules for a stable estimate"
+          }
+        }
+      }
+    },
+    "solubility_aqsoldb": {
+      "display": "Solubility-AqSolDB",
+      "task": "regression",
+      "n_test": 1995,
+      "n_leaked": 1013,
+      "n_nonleaked": 982,
+      "R2_label_agreement": {
+        "vs_own_trainval": {
+          "statistic": "mean_abs_label_difference",
+          "agreement_direction": "lower",
+          "n_near_pairs": 30,
+          "near_duplicate_pairs": {
+            "mean": 1.6705892624099998,
+            "ci": [
+              1.0948706798963332,
+              2.3797285124620835
+            ]
+          },
+          "random_pairs": {
+            "mean": 2.7077434223566668,
+            "ci": [
+              1.9630696746517502,
+              3.492364174091416
+            ]
+          },
+          "paired_difference_near_minus_random": {
+            "mean": -1.0371541599466667,
+            "ci": [
+              -1.9390730598340833,
+              -0.11368343669200053
+            ]
+          },
+          "difference_ci_excludes_zero": true
+        },
+        "vs_chembl_endpoint_pool": {
+          "statistic": "mean_abs_label_difference",
+          "agreement_direction": "lower",
+          "n_near_pairs": 124,
+          "near_duplicate_pairs": {
+            "mean": 0.6739238098683954,
+            "ci": [
+              0.5121209628942869,
+              0.8451595424647375
+            ]
+          },
+          "random_pairs": {
+            "mean": 1.567297659906408,
+            "ci": [
+              1.3532645982147897,
+              1.788960933419516
+            ]
+          },
+          "paired_difference_near_minus_random": {
+            "mean": -0.8933738500380124,
+            "ci": [
+              -1.1390658774868374,
+              -0.6477709757516282
+            ]
+          },
+          "difference_ci_excludes_zero": true,
+          "pool_size": 34658
+        }
+      },
+      "R3_covariates": {
+        "mw": {
+          "leaked": {
+            "mean": 282.2613050345509,
+            "median": 261.089,
+            "ci": [
+              273.1752791707799,
+              292.2789123149063
+            ]
+          },
+          "nonleaked": {
+            "mean": 338.60065274949085,
+            "median": 286.315,
+            "ci": [
+              322.58143182281066,
+              356.8486056517312
+            ]
+          },
+          "standardised_mean_difference": -0.25291707292315646
+        },
+        "heavy_atoms": {
+          "leaked": {
+            "mean": 19.15893385982231,
+            "median": 18.0,
+            "ci": [
+              18.612018756169796,
+              19.728553800592298
+            ]
+          },
+          "nonleaked": {
+            "mean": 22.417515274949082,
+            "median": 19.0,
+            "ci": [
+              21.334012219959266,
+              23.672097759674134
+            ]
+          },
+          "standardised_mean_difference": -0.22236708673893016
+        },
+        "tpsa": {
+          "leaked": {
+            "mean": 63.86032576505429,
+            "median": 57.53,
+            "ci": [
+              61.06245113524186,
+              66.75665572556763
+            ]
+          },
+          "nonleaked": {
+            "mean": 78.14775967413442,
+            "median": 62.245000000000005,
+            "ci": [
+              72.46242489816701,
+              84.24302291242363
+            ]
+          },
+          "standardised_mean_difference": -0.1925441084284042
+        },
+        "chembl_scaffold_count": {
+          "leaked": {
+            "mean": 1204.5923000987166,
+            "median": 223.0,
+            "ci": [
+              1101.2231243830206,
+              1308.064141164857
+            ]
+          },
+          "nonleaked": {
+            "mean": 1277.9826883910387,
+            "median": 194.0,
+            "ci": [
+              1178.3399694501018,
+              1380.221563136456
+            ]
+          },
+          "standardised_mean_difference": -0.04410707060345426
+        },
+        "label": {
+          "leaked_mean": -3.1022061343492595,
+          "nonleaked_mean": -3.719044995177801,
+          "leaked_sd": 2.005449636799985,
+          "nonleaked_sd": 2.5203936571550227,
+          "standardised_mean_difference": 0.27083772422063784
+        },
+        "within_test_scaffold_frequency": {
+          "leaked_mean": 36.981243830207305,
+          "nonleaked_mean": 46.20264765784114
+        }
+      },
+      "R3_matched_gap": {
+        "A1_chembl_naive|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.3285250187705209,
+            "matched_gap_ci": [
+              0.2772747089103838,
+              0.37711743734661374
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.6101129253468689,
+            "matched_gap_ci": [
+              0.5656887758237364,
+              0.649970864179414
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "A1_chembl_naive|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.14412541284555094,
+            "matched_gap_ci": [
+              0.11193347390325614,
+              0.17416606336175042
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.37223215899283546,
+            "matched_gap_ci": [
+              0.3319792272070097,
+              0.4046820113431296
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "A1_chembl_naive|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.18806127390903105,
+            "matched_gap_ci": [
+              0.159397165874659,
+              0.21191703390679886
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.4289171733516312,
+            "matched_gap_ci": [
+              0.3922820009031977,
+              0.4676523875019506
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "A2_chembl_dedup|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.29264983607970874,
+            "matched_gap_ci": [
+              0.2504814176195555,
+              0.3338469281817322
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.5807298244601021,
+            "matched_gap_ci": [
+              0.5422982764089093,
+              0.6182912013403848
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "A2_chembl_dedup|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.1382464237592212,
+            "matched_gap_ci": [
+              0.1096935273496878,
+              0.17486371192268188
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.36760555770188647,
+            "matched_gap_ci": [
+              0.33174616098534154,
+              0.4001080085224223
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "A2_chembl_dedup|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.1594832265234612,
+            "matched_gap_ci": [
+              0.1326601066006018,
+              0.18899178800272284
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.40787449885131366,
+            "matched_gap_ci": [
+              0.3731764253495696,
+              0.4400260789081878
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "B_tdc_trainval|knn_tanimoto": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.10739805853572974,
+            "matched_gap_ci": [
+              0.06740248627919583,
+              0.14296601135768253
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.21319571715875052,
+            "matched_gap_ci": [
+              0.1854146774365549,
+              0.24262448685709903
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "B_tdc_trainval|linear_ecfp": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": -0.14521665660895683,
+            "matched_gap_ci": [
+              -0.18732811298410745,
+              -0.10127587807530791
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": -0.10955445161700149,
+            "matched_gap_ci": [
+              -0.14238933672638093,
+              -0.07940545720530014
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        },
+        "B_tdc_trainval|random_forest": {
+          "strata_definition": "MW quintile x label quintile",
+          "matched_on_mw_and_label": {
+            "n_strata_used": 25,
+            "n_matched_per_side": 796,
+            "matched_gap_mean": 0.06889453669088352,
+            "matched_gap_ci": [
+              0.03929420566270596,
+              0.09414055745100447
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          },
+          "matched_on_mw_only": {
+            "n_strata_used": 5,
+            "n_matched_per_side": 914,
+            "matched_gap_mean": 0.21689813104003758,
+            "matched_gap_ci": [
+              0.1909878711075476,
+              0.23878888504140933
+            ],
+            "matched_ci_excludes_zero": true,
+            "n_repeats": 200
+          }
+        }
+      }
+    }
+  }
+}
