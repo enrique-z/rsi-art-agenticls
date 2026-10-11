@@ -1,12 +1,19 @@
 # Reproducibility Artifact — agenticls-rsi-leakage
 
-**Venue:** AgenticLS — Agentic AI for Biological Discovery, NeurIPS 2026 (Workshop).
-Double-blind submission. Track I (Building Agentic Systems for Life Science).
+**Paper:** *An LLM-Curated Self-Improvement Loop for ADMET Models, and the Leakage
+Census Its Evaluation Requires* — Enrique Zueco, David Scott Lewis, Haley Yi
+(AIXC Research, AIXC Bio).
 
-**Anonymous release.** This repository holds the reproducibility artifacts for one
-double-blind submission. Absolute paths have been replaced by placeholders
-(`<REPO_ROOT>`, `<DATA_ROOT>`) and identifying strings removed. The manuscript itself
+**Venue:** AgenticLS — Agentic AI for Biological Discovery, NeurIPS 2026 (Workshop),
+Track I (Building Agentic Systems for Life Science). Accepted as a **Spotlight**.
+The workshop is non-archival.
+
+**Camera-ready release.** This repository holds the reproducibility artifacts for the
+camera-ready paper; the state the paper cites is tag `v1.0-camera-ready`. Absolute
+paths are placeholders (`<REPO_ROOT>`, `<DATA_ROOT>`). The manuscript itself
 (`main.tex` / `main.pdf`) is not part of this repository.
+
+**Contact:** reports@aixcresearch.com
 
 ---
 
@@ -18,12 +25,18 @@ have a near-duplicate (Tanimoto ≥ 0.9, Morgan radius 2 / 2048 bits) in ChEMBL 
 public corpus an LLM curator can draw from when generating training data.
 
 **Stage 1b (does leakage matter):** A standard ADMET predictor trained on ChEMBL-derived
-data scores higher on the leaked test subset than on the non-leaked subset, with the
-AUC/RMSE gap's 95% CI excluding zero.
+data scores better on the near-duplicated test subset than on the leakage-clean subset.
+As reported in the paper, the primary solubility estimate is MAE: +0.4093 raw, +0.1595
+after covariate matching, and a +0.0811 [+0.0104, +0.1567] ChEMBL-specific residual
+against a corpus-free control — i.e. most of the raw gap is subset composition, not
+leakage. (The pre-declaration wrote this as an "AUC/RMSE gap"; the realised endpoint is
+MAE on Solubility-AqSolDB.)
 
 **Stage 2 (RSI gains):** In a 3-round LLM-curator RSI loop, the apparent improvement on
-the full TDC test set overstates the improvement on the non-leaked subset by a margin whose
-95% CI excludes zero.
+the full TDC test set overstates the improvement on the leakage-clean subset by a margin
+whose 95% CI excludes zero (+0.0216 MAE [+0.0085, +0.0353], against +0.0021 for a
+random-curator control). Note the loop did **not** improve: every arm, control included,
+ends three rounds worse on the pre-committed scaffold hold-out.
 
 These claims are pre-registered in `A2_PREDECLARATION_2026-09-07.md` before any data were
 collected. The observed effect is much larger than the threshold: 93.8% / 99.5% / 50.8%
